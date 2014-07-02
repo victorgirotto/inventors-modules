@@ -1,0 +1,342 @@
+﻿/* Elements */
+
+body {
+    padding-top: 40px;
+}
+
+.left-bg-color {
+    background: #2980b9;
+    position: fixed;
+    width: 50%;
+    z-index: 0;
+    height: 100%;
+}
+
+/* Fixed width sidebar layout */
+
+.navbar {
+    min-height: 40px;
+}
+
+body > .navbar-default {
+    border-width: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    background: #333;
+    height: 35px;
+}
+
+.navbar-default .navbar-nav li > a {
+    color: white;
+    padding: 10px;
+}
+
+.navbar-default .navbar-nav li > a:hover,
+.navbar-default .navbar-nav li > a.active {
+    color: white;
+    background: rgba(255,255,255,0.3);
+}
+
+#wrapper {
+    width: 960px;
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+    margin: 0 auto;
+    position: relative;
+}
+
+#sidebar-wrapper {
+    left: 0px;
+    width: 250px;
+    background: #2980b9;
+    position: absolute;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+}
+
+    #sidebar-wrapper h1 {
+        margin: 20px 20px 0 20px;
+        color: white;
+        text-indent: -9999px;
+        height: 100px;
+    }
+
+#page-content-wrapper {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.sidebar-nav {
+    width: 250px;
+    list-style: none;
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+    .sidebar-nav li {
+        line-height: 40px;
+    }
+
+        .sidebar-nav li a {
+            color: white;
+            display: block;
+            text-decoration: none;
+            padding: 0 0 0 20px;
+        }
+
+            .sidebar-nav li a:hover {
+                color: #fff;
+                background: rgba(255,255,255,0.2);
+                text-decoration: none;
+            }
+
+            .sidebar-nav li a:active,
+            .sidebar-nav li a:focus {
+                text-decoration: none;
+            }
+
+    .sidebar-nav > .sidebar-brand {
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        background: rgba(255,255,255,0.2);
+    }
+
+        .sidebar-nav > .sidebar-brand a {
+            color: white;
+        }
+
+            .sidebar-nav > .sidebar-brand a:hover {
+                color: white;
+                background: none;
+            }
+
+.sidebar-toggle {
+    border: solid 1px white;
+    position: relative;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    float: left;
+    background-color: transparent;
+    background-image: none;
+    border-radius: 4px;
+}
+
+    .sidebar-toggle .icon-bar {
+        background: white;
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+    }
+
+        .sidebar-toggle .icon-bar+.icon-bar {
+            margin-top: 4px;
+        }
+
+.active .sidebar-toggle {
+    border-color: #2980b9;
+}
+
+    .active .sidebar-toggle .icon-bar {
+        background: #2980b9;
+    }
+
+.content-header {
+    height: 65px;
+    line-height: 65px;
+}
+
+    .content-header h1 {
+        margin: 0;
+        margin-left: 20px;
+        line-height: 65px;
+        display: inline-block;
+    }
+
+#menu-toggle {
+    display: none;
+}
+
+.inset {
+    padding: 20px;
+}
+
+@media (max-width:767px) {
+    body {
+        padding-top: 0;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    #wrapper {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        left: 0;
+        position: fixed;
+        left: 0;
+        margin-left: -250px;
+    }
+
+    #page-content-wrapper {
+    }
+
+    #wrapper.active {
+        position: relative;
+        left: 250px;
+    }
+
+        #wrapper.active #sidebar-wrapper {
+            left: 250px;
+            width: 250px;
+            transition: all 0.4s ease 0s;
+        }
+
+    #menu-toggle {
+        display: inline-block;
+    }
+
+    .inset {
+        padding: 15px;
+    }
+
+    .content-header {
+        background-color: #2980b9;
+        transition: all 0.4s ease 0s;
+    }
+
+    .active .content-header {
+        background: white;
+        transition: all 0.4s ease 0s;
+    }
+}
+
+@media (min-width:768px) and (max-width:992px){
+    #wrapper {
+        width: 100%;
+        padding-left: 250px;
+    }
+}
+
+/* Classes */
+
+.logo {
+    background: url("/Images/IW-logo.png") no-repeat;
+    background-size: contain;
+}
+
+.user-image-thumb {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: #EEE;
+    margin: 0 10px 0px 0;
+    background-size: cover;
+}
+
+.news-action {
+    margin-bottom: 30px;
+}
+
+.news-action-title {
+    margin: 0 0 5px 0;
+    font-size: 1.3em;
+}
+
+.news-detail {
+    clear: both;
+    margin-top: 15px;
+}
+
+.action-date {
+    display: block;
+    font-size: 0.7em;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.icon-grid {
+    list-style-type: none;
+}
+
+.icon-grid li {
+    display: inline-block;
+    width: 160px;
+    height: 170px;
+    margin: 0 20px 20px 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.icon-grid-thumb {
+    display: inline-block;
+    height: 140px;
+    width: 140px;
+    background: #2980b9;
+    margin-bottom: 10px;
+}
+
+.icon-grid-thumb:hover span {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.5s;
+}
+
+.video {
+    background: #1abc9c;
+    position: relative;
+}
+
+.video span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url("/Images/video-icon.png") center center;
+}
+
+.text {
+    background: #e74c3c;
+}
+
+.text span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url("/Images/text-icon.png") center center;
+}
+
+.image {
+    background: #f39c12;
+}
+
+.image span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: url("/Images/image-icon.png") center center;
+}
+
+.pageActions {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.pageActions li {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: solid 1px #EEE;
+}
+
+.pageActions li:last-child {
+    border: none;
+}
