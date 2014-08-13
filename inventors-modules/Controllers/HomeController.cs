@@ -12,6 +12,9 @@ namespace inventors_modules.Controllers
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
+            
+            //List<string> results = 
+
             return View();
         }
 

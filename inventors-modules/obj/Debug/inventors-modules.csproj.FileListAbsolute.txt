@@ -87,3 +87,4 @@ c:\users\eric\documents\visual studio 2013\Projects\inventors-modules\inventors-
 c:\users\eric\documents\visual studio 2013\Projects\inventors-modules\inventors-modules\bin\zh-Hant\System.Spatial.resources.dll
 c:\users\eric\documents\visual studio 2013\Projects\inventors-modules\inventors-modules\obj\Debug\inventors-modules.dll
 c:\users\eric\documents\visual studio 2013\Projects\inventors-modules\inventors-modules\obj\Debug\inventors-modules.pdb
+C:\Users\Eric\Documents\Visual Studio 2013\Projects\inventors-modules\inventors-modules\obj\Debug\inventors-modules.csprojResolveAssemblyReference.cache
