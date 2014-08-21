@@ -177,7 +177,9 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\asu1.jpg" />
+    <Content Include="Images\az1.jpg" />
     <Content Include="Images\bullet.png" />
+    <Content Include="Images\error.png" />
     <Content Include="Images\heroAccent.png" />
     <Content Include="Images\orderedList0.png" />
     <Content Include="Images\orderedList1.png" />
@@ -192,6 +194,8 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\success.png" />
+    <Content Include="Images\warning.png" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
