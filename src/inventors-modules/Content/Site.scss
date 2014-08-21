@@ -1,0 +1,93 @@
+﻿$iw-color: rgba(38, 134, 116, 1);
+$iw-highlight: #55BDA8;
+$neutral-color: #CCC;
+$neutral-highlight: #EEE;
+$padding: 10px 20px;
+$warning-color: #FFF4B5;
+$error-color: #FF7070;
+$success-color: #BEFFA8;
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+    padding-top: 10px;
+}
+
+.navbar-default {
+    background: white;
+    border: none;
+    border-bottom: solid 4px $iw-color;
+    border-radius: 0;
+}
+
+input[type=submit]{
+    background: $neutral-color;
+    border: none;
+    color: black;
+    display: inline-block;
+    padding: 10px;
+
+    &:hover {
+        background: $neutral-highlight;
+    }
+
+    &.special {
+        background: $iw-color;
+        color: white;
+        
+        &:hover {
+            background: $iw-highlight;
+        }
+    }
+}
+
+.spaced > * {
+    margin-bottom: 40px;
+}
+
+img {
+    border: solid 2px $neutral-color;
+}
+
+.inner-container {
+    background: #EEE;
+    padding: $padding;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child {
+    margin-top: 10px;
+}
+
+.message {
+    padding: $padding;
+    position: relative;
+    height: 60px;
+
+    &.warning {
+        background: $warning-color;
+    }
+
+    &.error {
+        background: $error-color;
+    }
+
+    &.success {
+        background: $success-color;
+    }
+
+    * {
+        display: inline-block;
+        margin-right: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    img {
+        position: relative;
+        border: none;
+        height: 40px;
+    }
+}
