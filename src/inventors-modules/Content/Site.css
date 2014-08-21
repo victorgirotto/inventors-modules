@@ -1,1 +1,61 @@
-﻿
+﻿* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  padding-top: 10px; }
+
+.navbar-default {
+  background: white;
+  border: none;
+  border-bottom: solid 4px #268674;
+  border-radius: 0; }
+
+input[type=submit] {
+  background: #CCC;
+  border: none;
+  color: black;
+  display: inline-block;
+  padding: 10px; }
+  input[type=submit]:hover {
+    background: #EEE; }
+  input[type=submit].special {
+    background: #268674;
+    color: white; }
+    input[type=submit].special:hover {
+      background: #55BDA8; }
+
+.spaced > * {
+  margin-bottom: 40px; }
+
+img {
+  border: solid 2px #CCC; }
+
+.inner-container {
+  background: #EEE;
+  padding: 10px 20px; }
+
+h1:first-child, h2:first-child, h3:first-child {
+  margin-top: 10px; }
+
+.message {
+  padding: 10px 20px;
+  position: relative;
+  height: 60px; }
+  .message.warning {
+    background: #FFF4B5; }
+  .message.error {
+    background: #FF7070; }
+  .message.success {
+    background: #BEFFA8; }
+  .message * {
+    display: inline-block;
+    margin-right: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%); }
+  .message img {
+    position: relative;
+    border: none;
+    height: 40px; }
