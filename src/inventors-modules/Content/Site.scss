@@ -6,18 +6,57 @@ $padding: 10px 20px;
 $warning-color: #FFF4B5;
 $error-color: #FF7070;
 $success-color: #BEFFA8;
+$dark-text: black;
+$light-text: white;
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 body {
-    padding-top: 10px;
 }
 
 .navbar-default {
-    background: white;
+    background: $iw-color;
     border: none;
-    border-bottom: solid 4px $iw-color;
     border-radius: 0;
+
+    .navbar-brand {
+        color: white;
+
+        img {
+            height: 60px;
+            border: none;
+            display: block;
+        }
+
+        span {
+            display: none;
+        }
+    }
+
+    ul.navbar-nav {
+        li {
+            line-height: 100px;
+
+            &.active a {
+                background-color: $iw-highlight;
+                color: $dark-text;
+
+                &:hover {
+                    background-color: $iw-highlight;
+                    color: $dark-text;
+                }
+            }
+
+            a {
+                display: inline-block;
+                color: $light-text;
+            
+                &:hover {
+                    background-color: $iw-highlight;
+                }
+            }
+        }
+    }
 }
 
 input[type=submit]{
@@ -33,7 +72,7 @@ input[type=submit]{
 
     &.special {
         background: $iw-color;
-        color: white;
+        color: $light-text;
         
         &:hover {
             background: $iw-highlight;
@@ -89,5 +128,42 @@ h3:first-child {
         position: relative;
         border: none;
         height: 40px;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 767px) {
+    .navbar-default {
+        .navbar-brand {
+            img {
+                display: none;
+            }
+
+            span {
+                display: block;
+            }
+        }
+
+        .navbar-toggle {
+
+            &:hover,
+            &:focus {
+                background-color: $iw-highlight;
+            }
+
+            span.icon-bar {
+                background-color: white;
+            }
+        }
+
+        ul.navbar-nav {
+            li {
+                line-height: 20px;
+                
+                a {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
