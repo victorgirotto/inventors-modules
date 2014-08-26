@@ -3,14 +3,31 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-body {
-  padding-top: 10px; }
-
 .navbar-default {
-  background: white;
+  background: #268674;
   border: none;
-  border-bottom: solid 4px #268674;
   border-radius: 0; }
+  .navbar-default .navbar-brand {
+    color: white; }
+    .navbar-default .navbar-brand img {
+      height: 60px;
+      border: none;
+      display: block; }
+    .navbar-default .navbar-brand span {
+      display: none; }
+  .navbar-default ul.navbar-nav li {
+    line-height: 100px; }
+    .navbar-default ul.navbar-nav li.active a {
+      background-color: #55BDA8;
+      color: black; }
+      .navbar-default ul.navbar-nav li.active a:hover {
+        background-color: #55BDA8;
+        color: black; }
+    .navbar-default ul.navbar-nav li a {
+      display: inline-block;
+      color: white; }
+      .navbar-default ul.navbar-nav li a:hover {
+        background-color: #55BDA8; }
 
 input[type=submit] {
   background: #CCC;
@@ -59,3 +76,18 @@ h1:first-child, h2:first-child, h3:first-child {
     position: relative;
     border: none;
     height: 40px; }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 767px) {
+  .navbar-default .navbar-brand img {
+    display: none; }
+  .navbar-default .navbar-brand span {
+    display: block; }
+  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #55BDA8; }
+  .navbar-default .navbar-toggle span.icon-bar {
+    background-color: white; }
+  .navbar-default ul.navbar-nav li {
+    line-height: 20px; }
+    .navbar-default ul.navbar-nav li a {
+      width: 100%; } }
