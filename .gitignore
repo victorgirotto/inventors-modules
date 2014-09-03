@@ -183,4 +183,7 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
+# Private Files
+*.private.*
+
 
