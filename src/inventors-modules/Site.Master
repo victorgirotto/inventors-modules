@@ -32,9 +32,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Modules</a></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Default.aspx">Home</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/About.aspx">About</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Modules/Modules.aspx">Modules</asp:HyperLink></li>
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Pages/Contact.aspx">Contact</asp:HyperLink></li>
                 </ul>
                 </div><!--/.nav-collapse -->
             </div>

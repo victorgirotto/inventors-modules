@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class moduletag
+    public partial class ModuleTag
     {
         public int ModulesFK { get; set; }
         public int TagsFK { get; set; }

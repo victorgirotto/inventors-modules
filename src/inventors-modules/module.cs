@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class module
+    public partial class Module
     {
         public int PrKey { get; set; }
         public string Title { get; set; }

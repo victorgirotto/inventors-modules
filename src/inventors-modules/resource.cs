@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class resource
+    public partial class Resource
     {
         public int PrKey { get; set; }
         public string Title { get; set; }
