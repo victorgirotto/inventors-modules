@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class comment
+    public partial class Comment
     {
         public int PrKey { get; set; }
         public Nullable<int> RatingsFK { get; set; }

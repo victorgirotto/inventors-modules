@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class rating
+    public partial class Rating
     {
         public int PrKey { get; set; }
         public int UsersFK { get; set; }

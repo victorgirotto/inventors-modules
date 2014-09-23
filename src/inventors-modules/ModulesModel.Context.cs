@@ -13,10 +13,10 @@ namespace WebApplication1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class db539594002Entities : DbContext
+    public partial class DBEntities : DbContext
     {
-        public db539594002Entities()
-            : base("name=db539594002Entities")
+        public DBEntities()
+            : base("name=DBEntities")
         {
         }
     
@@ -25,14 +25,14 @@ namespace WebApplication1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<comment> comments { get; set; }
-        public virtual DbSet<module> modules { get; set; }
-        public virtual DbSet<rating> ratings { get; set; }
-        public virtual DbSet<resourceextra> resourceextras { get; set; }
-        public virtual DbSet<resource> resources { get; set; }
-        public virtual DbSet<resourcetype> resourcetypes { get; set; }
-        public virtual DbSet<tag> tags { get; set; }
-        public virtual DbSet<moduletag> moduletags { get; set; }
-        public virtual DbSet<resourcetag> resourcetags { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Module> Modules { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<ResourceExtra> ResourceExtras { get; set; }
+        public virtual DbSet<Resource> Resources { get; set; }
+        public virtual DbSet<ResourceType> ResourceTypes { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
+        public virtual DbSet<ModuleTag> ModuleTags { get; set; }
+        public virtual DbSet<ResourceTag> ResourceTags { get; set; }
     }
 }

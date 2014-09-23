@@ -126,8 +126,8 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="db539594002Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="comment">
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
@@ -137,7 +137,7 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="UsersFK" Type="Int32" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" />
         </EntityType>
-        <EntityType Name="module">
+        <EntityType Name="Module">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
@@ -152,7 +152,7 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsPrivate" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="rating">
+        <EntityType Name="Rating">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
@@ -161,7 +161,7 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="Rating1" Type="Int32" Nullable="false" />
           <Property Name="ModifiedDate" Type="DateTime" />
         </EntityType>
-        <EntityType Name="resourceextra">
+        <EntityType Name="ResourceExtra">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
@@ -171,7 +171,7 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="DateVaule" Type="DateTime" />
           <Property Name="ResourcesFK" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="resource">
+        <EntityType Name="Resource">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
@@ -188,7 +188,7 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="ResourceTypeFK" Type="Int32" Nullable="false" />
           <Property Name="ModulesFK" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="resourcetype">
+        <EntityType Name="ResourceType">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
@@ -196,14 +196,14 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="tag">
+        <EntityType Name="Tag">
           <Key>
             <PropertyRef Name="PrKey" />
           </Key>
           <Property Name="PrKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="moduletag">
+        <EntityType Name="ModuleTag">
           <Key>
             <PropertyRef Name="ModulesFK" />
             <PropertyRef Name="TagsFK" />
@@ -211,7 +211,7 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="ModulesFK" Type="Int32" Nullable="false" />
           <Property Name="TagsFK" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="resourcetag">
+        <EntityType Name="ResourceTag">
           <Key>
             <PropertyRef Name="ResourcesFK" />
             <PropertyRef Name="TagsFK" />
@@ -219,25 +219,25 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
           <Property Name="ResourcesFK" Type="Int32" Nullable="false" />
           <Property Name="TagsFK" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="db539594002Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="comments" EntityType="Self.comment" />
-          <EntitySet Name="modules" EntityType="Self.module" />
-          <EntitySet Name="ratings" EntityType="Self.rating" />
-          <EntitySet Name="resourceextras" EntityType="Self.resourceextra" />
-          <EntitySet Name="resources" EntityType="Self.resource" />
-          <EntitySet Name="resourcetypes" EntityType="Self.resourcetype" />
-          <EntitySet Name="tags" EntityType="Self.tag" />
-          <EntitySet Name="moduletags" EntityType="Self.moduletag" />
-          <EntitySet Name="resourcetags" EntityType="Self.resourcetag" />
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Comments" EntityType="DBModel.Comment" />
+          <EntitySet Name="Modules" EntityType="DBModel.Module" />
+          <EntitySet Name="Ratings" EntityType="DBModel.Rating" />
+          <EntitySet Name="ResourceExtras" EntityType="DBModel.ResourceExtra" />
+          <EntitySet Name="Resources" EntityType="DBModel.Resource" />
+          <EntitySet Name="ResourceTypes" EntityType="DBModel.ResourceType" />
+          <EntitySet Name="Tags" EntityType="DBModel.Tag" />
+          <EntitySet Name="ModuleTags" EntityType="DBModel.ModuleTag" />
+          <EntitySet Name="ResourceTags" EntityType="DBModel.ResourceTag" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="db539594002ModelStoreContainer" CdmEntityContainer="db539594002Entities">
-          <EntitySetMapping Name="comments">
-            <EntityTypeMapping TypeName="db539594002Model.comment">
+        <EntityContainerMapping StorageEntityContainer="db539594002ModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="DBModel.Comment">
               <MappingFragment StoreEntitySet="comments">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="RatingsFK" ColumnName="RatingsFK" />
@@ -247,8 +247,8 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="modules">
-            <EntityTypeMapping TypeName="db539594002Model.module">
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="DBModel.Module">
               <MappingFragment StoreEntitySet="modules">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -263,8 +263,8 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ratings">
-            <EntityTypeMapping TypeName="db539594002Model.rating">
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="DBModel.Rating">
               <MappingFragment StoreEntitySet="ratings">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="UsersFK" ColumnName="UsersFK" />
@@ -273,8 +273,8 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="resourceextras">
-            <EntityTypeMapping TypeName="db539594002Model.resourceextra">
+          <EntitySetMapping Name="ResourceExtras">
+            <EntityTypeMapping TypeName="DBModel.ResourceExtra">
               <MappingFragment StoreEntitySet="resourceextras">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="Label" ColumnName="Label" />
@@ -284,8 +284,8 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="resources">
-            <EntityTypeMapping TypeName="db539594002Model.resource">
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="DBModel.Resource">
               <MappingFragment StoreEntitySet="resources">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -302,8 +302,8 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="resourcetypes">
-            <EntityTypeMapping TypeName="db539594002Model.resourcetype">
+          <EntitySetMapping Name="ResourceTypes">
+            <EntityTypeMapping TypeName="DBModel.ResourceType">
               <MappingFragment StoreEntitySet="resourcetype">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -311,24 +311,24 @@ FROM `resourcetags` AS `resourcetags`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tags">
-            <EntityTypeMapping TypeName="db539594002Model.tag">
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="DBModel.Tag">
               <MappingFragment StoreEntitySet="tags">
                 <ScalarProperty Name="PrKey" ColumnName="PrKey" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="moduletags">
-            <EntityTypeMapping TypeName="db539594002Model.moduletag">
+          <EntitySetMapping Name="ModuleTags">
+            <EntityTypeMapping TypeName="DBModel.ModuleTag">
               <MappingFragment StoreEntitySet="moduletags">
                 <ScalarProperty Name="ModulesFK" ColumnName="ModulesFK" />
                 <ScalarProperty Name="TagsFK" ColumnName="TagsFK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="resourcetags">
-            <EntityTypeMapping TypeName="db539594002Model.resourcetag">
+          <EntitySetMapping Name="ResourceTags">
+            <EntityTypeMapping TypeName="DBModel.ResourceTag">
               <MappingFragment StoreEntitySet="resourcetags">
                 <ScalarProperty Name="ResourcesFK" ColumnName="ResourcesFK" />
                 <ScalarProperty Name="TagsFK" ColumnName="TagsFK" />

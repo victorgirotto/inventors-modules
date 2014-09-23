@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class tag
+    public partial class Tag
     {
         public int PrKey { get; set; }
         public string Name { get; set; }

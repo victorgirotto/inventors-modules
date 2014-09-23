@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class resourcetag
+    public partial class ResourceTag
     {
         public int ResourcesFK { get; set; }
         public int TagsFK { get; set; }

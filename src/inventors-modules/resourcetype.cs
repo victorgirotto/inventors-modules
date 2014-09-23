@@ -12,7 +12,7 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class resourcetype
+    public partial class ResourceType
     {
         public int PrKey { get; set; }
         public string Name { get; set; }

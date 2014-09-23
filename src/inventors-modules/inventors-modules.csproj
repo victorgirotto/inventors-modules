@@ -143,7 +143,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="Pages\Contact.aspx" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -202,12 +202,12 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Default.aspx" />
+    <Content Include="Pages\Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\success.png" />
     <Content Include="Images\warning.png" />
-    <Content Include="ModuleCreation.aspx" />
+    <Content Include="Pages\Modules\ModuleCreation.aspx" />
     <Content Include="packages.config" />
     <Content Include="Content\bootstrap\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap\bootstrap.css.map" />
@@ -318,37 +318,40 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="comment.cs">
+    <Compile Include="Comment.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
+    <Compile Include="Module.cs">
+      <DependentUpon>ModulesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleTag.cs">
+      <DependentUpon>ModulesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
+    <Compile Include="Pages\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Pages\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="Pages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="module.cs">
-      <DependentUpon>ModulesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModuleCreation.aspx.cs">
+    <Compile Include="Pages\Modules\ModuleCreation.aspx.cs">
       <DependentUpon>ModuleCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModuleCreation.aspx.designer.cs">
+    <Compile Include="Pages\Modules\ModuleCreation.aspx.designer.cs">
       <DependentUpon>ModuleCreation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModulesDataProvider.cs" />
+    <Compile Include="DataProviders\ModulesDataProvider.cs" />
     <Compile Include="ModulesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -364,23 +367,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModulesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="moduletag.cs">
-      <DependentUpon>ModulesModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rating.cs">
+    <Compile Include="Rating.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="resource.cs">
+    <Compile Include="Resource.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="resourceextra.cs">
+    <Compile Include="ResourceExtra.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="resourcetag.cs">
+    <Compile Include="ResourceTag.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="resourcetype.cs">
+    <Compile Include="ResourceType.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SearchResult.cs" />
@@ -398,7 +398,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="tag.cs">
+    <Compile Include="Tag.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">

@@ -10,32 +10,32 @@ namespace WebApplication1
     {
         public DbSet selectModulesAll()
         {
-            using (db539594002Entities db = new db539594002Entities())
+            using (DBEntities db = new DBEntities())
             {
-                return db.modules;
+                return db.Modules;
             }
         }
 
-        public DbSet selectModuleByPrKey(int modulePK)
+        public DbSet selectModuleByPrKey(int ModulePK)
         {
-            using (db539594002Entities db = new db539594002Entities())
+            using (DBEntities db = new DBEntities())
             {
-                return (DbSet)db.modules.Select(m => m.PrKey == modulePK);
+                return (DbSet)db.Modules.Select(m => m.PrKey == ModulePK);
             }
         }
 
-        public DbSet selectResourcesForModule(int moduleFK)
+        public DbSet selectResourcesForModule(int ModuleFK)
         {
-            using (db539594002Entities db = new db539594002Entities())
+            using (DBEntities db = new DBEntities())
             {
-                return (DbSet)db.resources.Select(r => r.ModulesFK == moduleFK);
+                return (DbSet)db.Resources.Select(r => r.ModulesFK == ModuleFK);
             }
         }
 
         public int insertModule(string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
         {
             int prKey = -1;
-            module newModule = new module();
+            Module newModule = new Module();
             newModule.Title = title;
             newModule.Description = description;
             newModule.ImageURL = imageURL;
@@ -45,9 +45,9 @@ namespace WebApplication1
             newModule.ModifiedBy = modifiedBy;
             newModule.IsActive = true;
             newModule.IsPrivate = isPrivate;
-            using (db539594002Entities db = new db539594002Entities())
+            using (DBEntities db = new DBEntities())
             {
-                db.modules.Add(newModule);
+                db.Modules.Add(newModule);
                 db.SaveChanges();
             }
             prKey = newModule.PrKey;
@@ -55,10 +55,10 @@ namespace WebApplication1
             return prKey;
         }
 
-        public int insertResource(string title, string description, string imageURL, int ownerFK, int modifiedBy, int difficultyLevel, int resourceTypeFK, int modulesFK)
+        public int insertResource(string title, string description, string imageURL, int ownerFK, int modifiedBy, int difficultyLevel, int ResourceTypeFK, int ModulesFK)
         {
             int prKey = -1;
-            resource newResource = new resource();
+            Resource newResource = new Resource();
             newResource.Title = title;
             newResource.Description = description;
             newResource.ImageURL = imageURL;
@@ -68,11 +68,11 @@ namespace WebApplication1
             newResource.ModifiedBy = modifiedBy;
             newResource.DifficultyLevel = difficultyLevel;
             newResource.IsActive = true;
-            newResource.ResourceTypeFK = resourceTypeFK;
-            newResource.ModulesFK = modulesFK;
-            using (db539594002Entities db = new db539594002Entities())
+            newResource.ResourceTypeFK = ResourceTypeFK;
+            newResource.ModulesFK = ModulesFK;
+            using (DBEntities db = new DBEntities())
             {
-                db.resources.Add(newResource);
+                db.Resources.Add(newResource);
                 db.SaveChanges();
             }
             prKey = newResource.PrKey;
@@ -82,9 +82,9 @@ namespace WebApplication1
 
         public void updateModule(int prKey, string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
         {
-            using (db539594002Entities db = new db539594002Entities())
+            using (DBEntities db = new DBEntities())
             {
-                module updateModule = db.modules.Where(m => m.PrKey == prKey).First<module>();
+                Module updateModule = db.Modules.Where(m => m.PrKey == prKey).First<Module>();
                 updateModule.Title = title;
                 updateModule.Description = description;
                 updateModule.ImageURL = imageURL;
@@ -98,9 +98,9 @@ namespace WebApplication1
 
         public void deleteModule(int prKey)
         {
-            using (db539594002Entities db = new db539594002Entities())
+            using (DBEntities db = new DBEntities())
             {
-                module deleteModule = db.modules.Where(m => m.PrKey == prKey).FirstOrDefault<module>();
+                Module deleteModule = db.Modules.Where(m => m.PrKey == prKey).FirstOrDefault<Module>();
                 deleteModule.IsActive = false;
                 db.SaveChanges();
             }
