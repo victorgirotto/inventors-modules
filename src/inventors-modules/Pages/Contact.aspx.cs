@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net.Mail;    //using the Microsoft Mail
-using System.Text.RegularExpressions;  //using a specific file of general text to check format or content
+using System.Net.Mail;    
+using System.Text.RegularExpressions; 
 
-namespace WebApplication1
+namespace WebApplication1.Pages
 {
     public partial class Contact : System.Web.UI.Page
     {
@@ -15,7 +15,8 @@ namespace WebApplication1
         {
 
         }
-        protected void contactSubmission(object sender, EventArgs e)
+
+        protected void ContactSubmission(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Cont_FirstName.Text.Trim()) || !String.IsNullOrEmpty(Cont_LastName.Text.Trim())
                 || !String.IsNullOrEmpty(ContactInfo.Text.Trim()) || !String.IsNullOrEmpty(Comments.Text.Trim()))

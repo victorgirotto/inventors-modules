@@ -1,13 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Contact" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Pages.Contact" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div>
         <h3>CONTACT US</h3>
 
@@ -38,8 +32,6 @@
         </table>
     </div>
         <p>
-            <asp:Button ID="Button1" Text="Submit" Onclick="contactSubmission" runat="server" />
+            <asp:Button ID="Button1" Text="Submit" Onclick="ContactSubmission" runat="server" />
         </p>
-    </form>
-</body>
-</html>
+</asp:Content>

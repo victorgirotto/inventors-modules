@@ -27,13 +27,13 @@ namespace WebApplication1
             bool isPrivate = chkboxPrivateModule.Checked;
 
             ModulesDataProvider DP = new ModulesDataProvider();
-            int prKey = DP.insertModule(title, description, null, 1234, 1234, isPrivate);
+            int prKey = DP.InsertModule(title, description, null, 1234, 1234, isPrivate);
 
             foreach (ListItem item in cblSearchResults.Items)
             {
                 if (item.Selected == true)
                 {
-                    DP.insertResource(item.Text, item.Value, null, 1234, 1234, 1, 1234, prKey);
+                    DP.InsertResource(item.Text, item.Value, null, 1234, 1234, 1, 1234, prKey);
                 }
             }
         }

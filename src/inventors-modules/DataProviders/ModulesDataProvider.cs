@@ -8,31 +8,39 @@ namespace WebApplication1
 {
     public class ModulesDataProvider
     {
-        public DbSet selectModulesAll()
+        public IEnumerable<Module> SelectModulesAll()
         {
             using (DBEntities db = new DBEntities())
             {
-                return db.Modules;
+                return db.Modules.ToArray<Module>();
             }
         }
 
-        public DbSet selectModuleByPrKey(int ModulePK)
+        public IEnumerable<Module> SelectModulesActive()
         {
             using (DBEntities db = new DBEntities())
             {
-                return (DbSet)db.Modules.Select(m => m.PrKey == ModulePK);
+                return db.Modules.Where(m => m.IsActive == true).ToArray<Module>();
             }
         }
 
-        public DbSet selectResourcesForModule(int ModuleFK)
+        public IEnumerable<Module> SelectModuleByPrKey(int ModulePK)
         {
             using (DBEntities db = new DBEntities())
             {
-                return (DbSet)db.Resources.Select(r => r.ModulesFK == ModuleFK);
+                return db.Modules.Where(m => m.PrKey == ModulePK).ToArray<Module>();
             }
         }
 
-        public int insertModule(string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
+        public IEnumerable<Resource> SelectResourcesForModule(int ModuleFK)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.Resources.Where(r => r.ModulesFK == ModuleFK).ToArray<Resource>();
+            }
+        }
+
+        public int InsertModule(string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
         {
             int prKey = -1;
             Module newModule = new Module();
@@ -55,7 +63,7 @@ namespace WebApplication1
             return prKey;
         }
 
-        public int insertResource(string title, string description, string imageURL, int ownerFK, int modifiedBy, int difficultyLevel, int ResourceTypeFK, int ModulesFK)
+        public int InsertResource(string title, string description, string imageURL, int ownerFK, int modifiedBy, int difficultyLevel, int ResourceTypeFK, int ModulesFK)
         {
             int prKey = -1;
             Resource newResource = new Resource();
@@ -80,7 +88,7 @@ namespace WebApplication1
             return prKey;
         }
 
-        public void updateModule(int prKey, string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
+        public void UpdateModule(int prKey, string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
         {
             using (DBEntities db = new DBEntities())
             {
@@ -96,7 +104,7 @@ namespace WebApplication1
             }
         }
 
-        public void deleteModule(int prKey)
+        public void DeleteModule(int prKey)
         {
             using (DBEntities db = new DBEntities())
             {
