@@ -24,11 +24,11 @@ namespace WebApplication1
             }
         }
 
-        public IEnumerable<Module> SelectModuleByPrKey(int ModulePK)
+        public Module SelectModuleByPrKey(int ModulePK)
         {
             using (DBEntities db = new DBEntities())
             {
-                return db.Modules.Where(m => m.PrKey == ModulePK).ToArray<Module>();
+                return db.Modules.Where(m => m.PrKey == ModulePK).First<Module>();
             }
         }
 

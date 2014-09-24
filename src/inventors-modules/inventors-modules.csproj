@@ -236,6 +236,7 @@
       <LastGenOutput>ModulesModel.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Pages\Modules\ModuleHome.aspx" />
     <Content Include="Pages\Modules\Modules.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -375,6 +376,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModulesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Modules\ModuleHome.aspx.cs">
+      <DependentUpon>ModuleHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Modules\ModuleHome.aspx.designer.cs">
+      <DependentUpon>ModuleHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Modules\Modules.aspx.cs">
       <DependentUpon>Modules.aspx</DependentUpon>

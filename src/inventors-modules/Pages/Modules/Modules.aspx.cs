@@ -15,8 +15,13 @@ namespace WebApplication1.Pages.Modules
             ModulesDataProvider dataProvider = new ModulesDataProvider();
             IEnumerable<Module> modules = dataProvider.SelectModulesAll();
 
-            ModulesRepeater.DataSource = modules;
-            ModulesRepeater.DataBind();
+            FeaturedModulesRepeater.DataSource = modules;
+            BestModulesRepeater.DataSource = modules;
+            RecentModulesRepeater.DataSource = modules;
+
+            FeaturedModulesRepeater.DataBind();
+            BestModulesRepeater.DataBind();
+            RecentModulesRepeater.DataBind();
         }
     }
 }
