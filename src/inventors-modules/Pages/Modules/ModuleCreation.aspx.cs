@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System;
-using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
 namespace WebApplication1

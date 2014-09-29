@@ -10,33 +10,24 @@
 namespace WebApplication1.Pages.Modules {
     
     
-    public partial class Modules {
+    public partial class ModuleHome {
         
         /// <summary>
-        /// FeaturedModulesRepeater control.
+        /// ModuleTitleLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater FeaturedModulesRepeater;
+        protected global::System.Web.UI.WebControls.Label ModuleTitleLabel;
         
         /// <summary>
-        /// BestModulesRepeater control.
+        /// ModuleDescriptionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater BestModulesRepeater;
-        
-        /// <summary>
-        /// RecentModulesRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RecentModulesRepeater;
+        protected global::System.Web.UI.WebControls.Label ModuleDescriptionLabel;
     }
 }

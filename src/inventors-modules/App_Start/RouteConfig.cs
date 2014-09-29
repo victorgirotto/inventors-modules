@@ -13,6 +13,9 @@ namespace WebApplication1
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            
+            // Routes
+            routes.MapPageRoute("moduleHome", "Pages/Modules/{id}", "~/Pages/Modules/ModuleHome.aspx");
         }
     }
 }
