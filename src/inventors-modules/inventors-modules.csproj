@@ -324,6 +324,7 @@
     <Compile Include="Comment.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Module.cs">
       <DependentUpon>ModulesModel.tt</DependentUpon>
     </Compile>
