@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{16
 		database\DBSetup.sql = database\DBSetup.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorsModules", "IdentityTest\InventorsModules.csproj", "{82C7F088-7674-4F3D-8499-8B34A3EC3117}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorsModules", "src\InventorsModules\InventorsModules.csproj", "{82C7F088-7674-4F3D-8499-8B34A3EC3117}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
