@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{16B24E7A-68B1-4E97-86C2-DCE7A5ED8B2F}"
 	ProjectSection(SolutionItems) = preProject
 		database\DBSetup.sql = database\DBSetup.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inventors-modules", "src\inventors-modules\inventors-modules.csproj", "{10736711-ACEE-4571-863D-4B085AFBC397}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorsModules", "src\InventorsModules\InventorsModules.csproj", "{82C7F088-7674-4F3D-8499-8B34A3EC3117}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{10736711-ACEE-4571-863D-4B085AFBC397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10736711-ACEE-4571-863D-4B085AFBC397}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10736711-ACEE-4571-863D-4B085AFBC397}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10736711-ACEE-4571-863D-4B085AFBC397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C7F088-7674-4F3D-8499-8B34A3EC3117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C7F088-7674-4F3D-8499-8B34A3EC3117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C7F088-7674-4F3D-8499-8B34A3EC3117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C7F088-7674-4F3D-8499-8B34A3EC3117}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
