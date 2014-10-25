@@ -22,7 +22,10 @@ input[type=search] {
     border: solid 1px $neutral-color; 
     line-height: 2em;
     padding: 3px;
-    box-shadow: inset 0 0 8px #EEE;
+}
+
+textarea {
+    display: block;
 }
 
 .navbar-default {
@@ -70,12 +73,21 @@ input[type=search] {
     }
 }
 
+.no-bullets {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+        margin-bottom: 15px;
+    }
+}
+
 input[type=submit],
 .button{
     background: $neutral-color;
     border: none;
     color: black;
-    display: inline-block;
+    display: block;
     padding: 10px;
 
     &:hover {
@@ -90,6 +102,10 @@ input[type=submit],
             background: $iw-highlight;
         }
     }
+}
+
+input[type=checkbox]{
+    margin-right: 10px;
 }
 
 .spaced > * {

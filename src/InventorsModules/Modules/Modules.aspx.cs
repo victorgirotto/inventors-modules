@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IdentityTest.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace WebApplication1.Pages.Modules
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             ModulesDataProvider dataProvider = new ModulesDataProvider();
             IEnumerable<Module> modules = dataProvider.SelectModulesAll();
 
@@ -22,6 +24,7 @@ namespace WebApplication1.Pages.Modules
             FeaturedModulesRepeater.DataBind();
             BestModulesRepeater.DataBind();
             RecentModulesRepeater.DataBind();
+            
         }
     }
 }

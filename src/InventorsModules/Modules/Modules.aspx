@@ -8,8 +8,13 @@
 
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in modules"></asp:TextBox>
                 
-                <h5><a href="#">Home</a></h5>
-                <h5>Browse by Type</h5>
+                <h5>
+                    <a href="#" class="btn btn-default">Home</a>
+                    <asp:HyperLink runat="server" NavigateUrl="~/Modules/ModuleCreation.aspx" CssClass="btn btn-primary">
+                        New Module
+                    </asp:HyperLink>
+                </h5>
+                
                 <ul>
                     <li><a href="#">Art</a></li>
                     <li><a href="#">Technology</a></li>
@@ -20,9 +25,7 @@
                     <li><a href="#">Sports</a></li>
                     <li><a href="#">Hacker-maker</a></li>
                 </ul>
-                <asp:HyperLink runat="server" NavigateUrl="~/Modules/ModuleCreation.aspx" CssClass="btn btn-default">
-                    Create a new module
-                </asp:HyperLink>
+                
             </div>
         </div>
         <div class="col-md-9">

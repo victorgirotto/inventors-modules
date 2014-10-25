@@ -7,45 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.Pages.Modules {
+namespace IdentityTest.Modules {
     
     
-    public partial class ModuleHome {
+    public partial class ResourceAdd {
         
         /// <summary>
-        /// AddResourceLink control.
+        /// ResourceTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink AddResourceLink;
+        protected global::System.Web.UI.WebControls.TextBox ResourceTitle;
         
         /// <summary>
-        /// ModuleTitleLabel control.
+        /// ResourceUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ModuleTitleLabel;
+        protected global::System.Web.UI.WebControls.TextBox ResourceUrl;
         
         /// <summary>
-        /// ModuleDescriptionLabel control.
+        /// ResourceDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ModuleDescriptionLabel;
+        protected global::System.Web.UI.WebControls.TextBox ResourceDescription;
         
         /// <summary>
-        /// FeaturedResourcesRepeater control.
+        /// CreateResource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater FeaturedResourcesRepeater;
+        protected global::System.Web.UI.WebControls.Button CreateResource;
     }
 }

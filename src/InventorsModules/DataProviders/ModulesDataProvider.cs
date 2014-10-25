@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using IdentityTest.DataProviders;
+using IdentityTest.Models;
 
 namespace WebApplication1
 {
@@ -10,12 +12,36 @@ namespace WebApplication1
     {
         public IEnumerable<Module> SelectModulesAll()
         {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.Modules.ToArray<Module>();
-            }
+            return DapperUtil.SelectMany<Module>("select * from Modules");
         }
 
+        public int InsertModule(Module module)
+        {
+            int prKey = -1;
+
+            string sql = @"
+                INSERT INTO Modules (Title, Description, DateCreated, DateModified, OwnerFk, IsActive, IsPrivate)
+                VALUES (@Title, @Description, @DateCreated, @DateModified, @OwnerFk, @IsActive, @IsPrivate);";
+
+            prKey = DapperUtil.ExecuteInsert(sql, new {
+                Title = module.Title,
+                Description = module.Description,
+                DateCreated = module.DateCreated,
+                DateModified = module.DateModified,
+                OwnerFk = -1,
+                IsActive = true,
+                IsPrivate = false
+            });
+            
+            return prKey;
+        }
+
+        public Module SelectModuleById(int id)
+        {
+            return DapperUtil.SelectOne<Module>("select * from Modules where PrKey = @id", new { id = id });
+        }
+
+        /*
         public IEnumerable<Module> SelectModulesActive()
         {
             using (DBEntities db = new DBEntities())
@@ -39,30 +65,9 @@ namespace WebApplication1
                 return db.Resources.Where(r => r.ModulesFK == ModuleFK).ToArray<Resource>();
             }
         }
+        */
 
-        public int InsertModule(string title, string description, string imageURL, int ownerFK, int modifiedBy, bool isPrivate)
-        {
-            int prKey = -1;
-            Module newModule = new Module();
-            newModule.Title = title;
-            newModule.Description = description;
-            newModule.ImageURL = imageURL;
-            newModule.OwnerFK = ownerFK;
-            newModule.DateCreated = DateTime.Now;
-            newModule.DateModified = null;
-            newModule.ModifiedBy = modifiedBy;
-            newModule.IsActive = true;
-            newModule.IsPrivate = isPrivate;
-            using (DBEntities db = new DBEntities())
-            {
-                db.Modules.Add(newModule);
-                db.SaveChanges();
-            }
-            prKey = newModule.PrKey;
-            
-            return prKey;
-        }
-
+        /*
         public int InsertResource(string title, string description, string imageURL, int ownerFK, int modifiedBy, int difficultyLevel, int ResourceTypeFK, int ModulesFK)
         {
             int prKey = -1;
@@ -112,6 +117,6 @@ namespace WebApplication1
                 deleteModule.IsActive = false;
                 db.SaveChanges();
             }
-        }
+        }*/
     }
 }
