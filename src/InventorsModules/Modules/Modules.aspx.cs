@@ -14,7 +14,7 @@ namespace WebApplication1.Pages.Modules
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            ModulesDataProvider dataProvider = new ModulesDataProvider();
+            ModulesDAO dataProvider = new ModulesDAO();
             IEnumerable<Module> modules = dataProvider.SelectModulesAll();
 
             FeaturedModulesRepeater.DataSource = modules;

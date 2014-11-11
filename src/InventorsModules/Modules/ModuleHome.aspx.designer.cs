@@ -40,12 +40,12 @@ namespace WebApplication1.Pages.Modules {
         protected global::System.Web.UI.WebControls.Label ModuleDescriptionLabel;
         
         /// <summary>
-        /// FeaturedResourcesRepeater control.
+        /// MostRecentRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater FeaturedResourcesRepeater;
+        protected global::System.Web.UI.WebControls.Repeater MostRecentRepeater;
     }
 }

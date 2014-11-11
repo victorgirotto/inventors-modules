@@ -37,11 +37,11 @@
                         <ItemTemplate>
                             <div class="col-md-3">
                                 <div class="grid-item">
-                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("PrKey")) %>'>
+                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
                                         <div>&nbsp;</div>
                                     </asp:HyperLink>
                                     <h4>
-                                        <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("PrKey")) %>'>
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
                                             <%#Eval("title")%>
                                         </asp:HyperLink>
                                     </h4>
@@ -59,7 +59,7 @@
                         <ItemTemplate>
                             <div class="col-md-3">
                                 <div class="grid-item">
-                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("PrKey")) %>'>
+                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
                                         <div>&nbsp;</div>
                                     </asp:HyperLink>
                                     <h4>
@@ -81,7 +81,7 @@
                         <ItemTemplate>
                             <div class="col-md-3">
                                 <div class="grid-item">
-                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("PrKey")) %>'>
+                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
                                         <div>&nbsp;</div>
                                     </asp:HyperLink>
                                     <h4>

@@ -7,7 +7,7 @@ namespace IdentityTest.Models
 {
     public class Resource
     {
-        public int PrKey { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
@@ -20,5 +20,6 @@ namespace IdentityTest.Models
         public bool IsActive { get; set; }
         public int ResourceTypeFk { get; set; }
         public int ModuleFk { get; set; }
+        public bool IsFeatured { get; set; }
     }
 }

@@ -154,9 +154,8 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
         font-weight: bolder;
         margin-top: 10px; }
       .events ul li img, .contacts ul li img {
-        width: 64px;
-        height: 64px;
-        float: left; }
+        width: 24px;
+        height: 24px; }
       .events ul li h5, .contacts ul li h5 {
         line-height: 64px;
         text-indent: 10px; }

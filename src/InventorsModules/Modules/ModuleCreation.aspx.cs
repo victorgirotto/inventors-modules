@@ -30,10 +30,12 @@ namespace WebApplication1
             {
                 Title = title,
                 Description = description,
-                IsPrivate = isPrivate
+                IsPrivate = isPrivate,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now
             };
 
-            ModulesDataProvider DP = new ModulesDataProvider();
+            ModulesDAO DP = new ModulesDAO();
             int prKey = DP.InsertModule(module);
 
             Response.Redirect(String.Format("~/Modules/{0}", prKey));

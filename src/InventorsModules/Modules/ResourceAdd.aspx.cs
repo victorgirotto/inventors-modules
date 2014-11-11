@@ -18,15 +18,37 @@ namespace IdentityTest.Modules
 
         protected void CreateResource_Click(object sender, EventArgs e)
         {
-            Resource resource = new Resource()
-            {
-                Title = ResourceTitle.Text,
-                Url = ResourceUrl.Text,
-                Description = ResourceDescription.Text
-            };
+            int moduleId = -1;
+            string idValue = Page.RouteData.Values["id"] != null ? Page.RouteData.Values["id"].ToString() : null;
 
-            ResourcesDataProvider provider = new ResourcesDataProvider();
-            int prKey = provider.InsertResource(resource);
+            if (idValue != null)
+            {
+                bool converted = Int32.TryParse(idValue, out moduleId);
+                if (converted)
+                {
+                    Resource resource = new Resource()
+                    {
+                        Title = ResourceTitle.Text,
+                        Url = ResourceUrl.Text,
+                        Description = ResourceDescription.Text,
+                        ModuleFk = moduleId
+                    };
+
+                    ResourcesDAO provider = new ResourcesDAO();
+                    int prKey = provider.InsertResource(resource);
+
+                    // Redirect to resource page
+                    Response.Redirect("~/Resources/" + prKey);
+                }
+                else
+                {
+                    Response.Redirect("~/Modules/Modules.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Modules/Modules.aspx");
+            }
         }
     }
 }

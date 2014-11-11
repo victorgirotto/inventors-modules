@@ -70,49 +70,49 @@
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="#">
                                     <asp:Image runat="server" ImageUrl="~/Images/az1.jpg"/>
                                 </asp:HyperLink>
-                                <h5><asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink>
                                 <div style="clear: both" />
                             </li>
                         </ul>
@@ -142,71 +142,28 @@
             </div>
 
             <div class="row spaced separator">
-                <div class="col-md-12 spaced">
-                    <h3>Featured Resources</h3>
-                    
-
-
-
-
-                    <div class="row">
-                        <asp:Repeater ID="FeaturedResourcesRepeater" runat="server">
-                            <ItemTemplate>
-                                <div class="col-md-3">
-                                    <div class="grid-item">
-                                        <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("PrKey")) %>'>
-                                            <div>&nbsp;</div>
-                                        </asp:HyperLink>
-                                        <h4>
-                                            <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("PrKey")) %>'>
-                                                <%#Eval("title")%>
-                                            </asp:HyperLink>
-                                        </h4>
-                                        <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
-                                    </div>
-                                </div>        
-                            </ItemTemplate>
-                        </asp:Repeater>       
-                    </div>
-                </div>
-
-                <div class="col-md-12 spaced">
-                    <h3>Best Rated Resources</h3>
-                
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="grid-item">
-                                <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='#'>
-                                    <div>&nbsp;</div>
-                                </asp:HyperLink>
-                                <h4>
-                                    <asp:HyperLink runat="server" NavigateUrl='#'>
-                                        Resource
-                                    </asp:HyperLink>
-                                </h4>
-                                <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
-                            </div>
-                        </div>        
-                    </div>
-                </div>
 
                 <div class="col-md-12 spaced">
                     <h3>Most Recent Resources</h3>
                 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="grid-item">
-                                <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='#'>
-                                    <div>&nbsp;</div>
-                                </asp:HyperLink>
-                                <h4>
-                                    <asp:HyperLink runat="server" NavigateUrl='#'>
-                                        Resource
-                                    </asp:HyperLink>
-                                </h4>
-                                <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
-                            </div>
-                        </div>        
+                        <asp:Repeater runat="server" ID="MostRecentRepeater">
+                            <ItemTemplate>
+                                <div class="col-md-3">
+                                    <div class="grid-item">
+                                        <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("Id")) %>'>
+                                            <div>&nbsp;</div>
+                                        </asp:HyperLink>
+                                        <h4>
+                                            <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("Id")) %>'>
+                                                <%#Eval("title")%>
+                                            </asp:HyperLink>
+                                        </h4>
+                                        <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>        
                     </div>
                 </div>
             </div>

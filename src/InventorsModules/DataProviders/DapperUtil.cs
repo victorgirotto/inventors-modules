@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Dapper;
-using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace IdentityTest.DataProviders
 {
@@ -13,7 +13,8 @@ namespace IdentityTest.DataProviders
 
         public static IEnumerable<T> SelectMany<T>(string query, object param = null)
         {
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=dbentities;Uid=root;Pwd=admin;Persist Security Info=True;"))
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connString))
             {
                 var rows = connection.Query<T>(query, param);
                 return rows;
@@ -22,7 +23,8 @@ namespace IdentityTest.DataProviders
 
         public static T SelectOne<T>(string query, object param = null)
         {
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=dbentities;Uid=root;Pwd=admin;Persist Security Info=True;"))
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connString))
             {
                 var rows = connection.Query<T>(query, param);
                 return rows.First();
@@ -31,7 +33,8 @@ namespace IdentityTest.DataProviders
 
         public static void ExecuteQuery(string query, object param = null)
         {
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=dbentities;Uid=root;Pwd=admin;Persist Security Info=True;"))
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connString))
             {
                 connection.Execute(query, param);
             }
@@ -39,13 +42,14 @@ namespace IdentityTest.DataProviders
 
         public static int ExecuteInsert(string query, object param = null)
         {
-            ExecuteQuery(query, param);
-            return ExecuteScalar("SELECT LAST_INSERT_ID();");
+            return ExecuteScalar(query, param);
         }
 
         public static int ExecuteScalar(string query, object param = null)
         {
-            using (MySqlConnection connection = new MySqlConnection("Server=localhost;Database=dbentities;Uid=root;Pwd=admin;Persist Security Info=True;")){
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
                 return connection.Query<int>(query, param).Single();
             }
         }
