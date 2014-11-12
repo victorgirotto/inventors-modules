@@ -8,6 +8,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using IdentityTest.Models;
+using IdentityTest.Properties;
 
 namespace IdentityTest
 {
@@ -51,13 +52,13 @@ namespace IdentityTest
             //    clientId: "",
             //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+            app.UseTwitterAuthentication(
+               consumerKey: API.Default.TwitterApiKey,
+               consumerSecret: API.Default.TwitterApiSecret);
 
             app.UseFacebookAuthentication(
-               appId: "XXX",    
-               appSecret: "XXX");
+               appId: API.Default.FacebookApiKey,
+               appSecret: API.Default.FacebookApiSecret);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

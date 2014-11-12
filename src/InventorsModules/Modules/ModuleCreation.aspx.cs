@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json.Linq;
+using IdentityTest.Models;
 
 namespace WebApplication1
 {
@@ -20,13 +21,26 @@ namespace WebApplication1
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            
             string title = txtTitle.Text.Trim();
             string description = txtDescription.Text.Trim();
             bool isPrivate = chkboxPrivateModule.Checked;
 
-            ModulesDataProvider DP = new ModulesDataProvider();
-            int prKey = DP.InsertModule(title, description, null, 1234, 1234, isPrivate);
+            Module module = new Module()
+            {
+                Title = title,
+                Description = description,
+                IsPrivate = isPrivate,
+                DateCreated = DateTime.Now,
+                DateModified = DateTime.Now
+            };
 
+            ModulesDAO DP = new ModulesDAO();
+            int prKey = DP.InsertModule(module);
+
+            Response.Redirect(String.Format("~/Modules/{0}", prKey));
+
+            /*
             foreach (ListItem item in cblSearchResults.Items)
             {
                 if (item.Selected == true)
@@ -34,8 +48,11 @@ namespace WebApplication1
                     DP.InsertResource(item.Text, item.Value, null, 1234, 1234, 1, 1234, prKey);
                 }
             }
+            */
+            
         }
 
+        /*
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             string title = txtTitle.Text.Trim();
@@ -55,5 +72,6 @@ namespace WebApplication1
             }
             PanelSearchResults.Visible = true;
         }
+         * */
     }
 }

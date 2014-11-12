@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IdentityTest.DataProviders;
+using IdentityTest.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,16 +21,29 @@ namespace WebApplication1.Pages.Modules
                 bool converted = Int32.TryParse(idValue, out moduleId);
                 if (converted)
                 {
-                    ModulesDataProvider dp = new ModulesDataProvider();
-                    Module module = dp.SelectModuleByPrKey(moduleId);
+                    ModulesDAO dp = new ModulesDAO();
+                    Module module = dp.SelectModuleById(moduleId);
 
                     ModuleTitleLabel.Text = module.Title;
                     ModuleDescriptionLabel.Text = module.Description;
+
+                    // Add module ID to add resources link
+                    AddResourceLink.NavigateUrl = String.Format(AddResourceLink.NavigateUrl, moduleId);
+
+                    // Loading resources
+                    ResourcesDAO resourcesDP = new ResourcesDAO();
+                    IEnumerable<Resource> resources = resourcesDP.SelectResourcesByModule(moduleId);
+                    MostRecentRepeater.DataSource = resources;
+                    MostRecentRepeater.DataBind();
                 }
                 else
                 {
                     // Module not found
                 }
+            }
+            else
+            {
+                Response.Redirect("~/Modules/Modules.aspx");
             }
         }
     }

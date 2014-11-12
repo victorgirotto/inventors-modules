@@ -6,8 +6,10 @@
 input[type=text], input[type=search] {
   border: solid 1px #CCC;
   line-height: 2em;
-  padding: 3px;
-  box-shadow: inset 0 0 8px #EEE; }
+  padding: 3px; }
+
+textarea {
+  display: block; }
 
 .navbar-default {
   background: #268674;
@@ -35,11 +37,17 @@ input[type=text], input[type=search] {
       .navbar-default ul.navbar-nav li a:hover {
         background-color: #55BDA8; }
 
+.no-bullets {
+  list-style-type: none;
+  padding-left: 0; }
+  .no-bullets li {
+    margin-bottom: 15px; }
+
 input[type=submit], .button {
   background: #CCC;
   border: none;
   color: black;
-  display: inline-block;
+  display: block;
   padding: 10px; }
   input[type=submit]:hover, .button:hover {
     background: #EEE; }
@@ -48,6 +56,9 @@ input[type=submit], .button {
     color: white; }
     input[type=submit].special:hover, .button.special:hover {
       background: #55BDA8; }
+
+input[type=checkbox] {
+  margin-right: 10px; }
 
 .spaced > * {
   margin-bottom: 20px; }
@@ -109,7 +120,8 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
   .navbar-default ul.navbar-nav li {
     line-height: 20px; }
     .navbar-default ul.navbar-nav li a {
-      width: 100%; } }
+      width: 100%; }
+ }
 
 .grid-item {
   text-align: center;
@@ -142,9 +154,8 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
         font-weight: bolder;
         margin-top: 10px; }
       .events ul li img, .contacts ul li img {
-        width: 64px;
-        height: 64px;
-        float: left; }
+        width: 24px;
+        height: 24px; }
       .events ul li h5, .contacts ul li h5 {
         line-height: 64px;
         text-indent: 10px; }
@@ -175,3 +186,8 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
   padding-top: 30px;
   margin-top: 30px; }
 
+.jumbotron {
+  /*background: url(../Images/asu.jpg) 0 -150px;
+    background-size: cover;*/ }
+
+/*# sourceMappingURL=../../../../../../Program Files (x86)/Microsoft Visual Studio 12.0/Common7/IDE/Site.css.map */

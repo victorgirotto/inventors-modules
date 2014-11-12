@@ -33,7 +33,7 @@ namespace IdentityTest.Models
 
         static ApplicationDbContext()
         {
-            Database.SetInitializer(new MySqlInitializer());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationDbContext>());
         }
 
         public ApplicationDbContext()
