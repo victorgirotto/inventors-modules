@@ -186,4 +186,6 @@ FakesAssemblies/
 # Private Files
 *.private.*
 
-
+# Settings with API Keys and secret
+API.settings
+API.designer.cs

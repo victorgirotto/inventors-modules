@@ -196,10 +196,11 @@
     <Content Include="ConnectionStrings.example.config" />
     <Content Include="ConnectionStrings.private.config" />
     <Content Include="Content\Site.scss" />
-    <Content Include="ConnectionStrings.production.private.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="Properties\PublishProfiles\1and1.pubxml" />
+    <None Include="Properties\PublishProfiles\inventorsworkshops.pubxml" />
+    <None Include="Properties\API.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>API.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="About.aspx" />
     <Content Include="Contact.aspx" />
@@ -364,9 +365,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="DataProviders\DapperUtil.cs" />
-    <Compile Include="DataProviders\ModulesDAO.cs" />
-    <Compile Include="DataProviders\ResourcesDAO.cs" />
+    <Compile Include="DAO\DapperUtil.cs" />
+    <Compile Include="DAO\ModulesDAO.cs" />
+    <Compile Include="DAO\ResourcesDAO.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,8 +378,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\MySqlHistoryContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\Resource.cs" />
@@ -389,8 +388,6 @@
     <Compile Include="Modules\ResourceAdd.aspx.designer.cs">
       <DependentUpon>ResourceAdd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MySqlConfiguration.cs" />
-    <Compile Include="MySqlInitializer.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,6 +402,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\API.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>API.settings</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Resource.aspx.cs">
       <DependentUpon>Resource.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,6 +414,7 @@
     <Compile Include="Resources\Resource.aspx.designer.cs">
       <DependentUpon>Resource.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Showcase.aspx.cs">
       <DependentUpon>Showcase.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
