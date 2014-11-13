@@ -11,7 +11,7 @@
                 
                 <h5>
                     <a href="#" class="btn btn-default">Home</a>
-                    <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Modules/{0}/ResourceAdd" CssClass="btn btn-primary">
+                    <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Resources/{0}/ResourceAdd" CssClass="btn btn-primary">
                         New Resource
                     </asp:HyperLink>
                 </h5>

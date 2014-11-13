@@ -187,7 +187,7 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\success.png" />
     <Content Include="Images\warning.png" />
-    <Content Include="Modules\ResourceAdd.aspx" />
+    <Content Include="Resources\ResourceAdd.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -381,11 +381,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\Resource.cs" />
-    <Compile Include="Modules\ResourceAdd.aspx.cs">
+    <Compile Include="Resources\ResourceAdd.aspx.cs">
       <DependentUpon>ResourceAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Modules\ResourceAdd.aspx.designer.cs">
+    <Compile Include="Resources\ResourceAdd.aspx.designer.cs">
       <DependentUpon>ResourceAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="About.aspx.cs">
