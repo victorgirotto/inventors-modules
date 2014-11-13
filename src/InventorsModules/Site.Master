@@ -15,7 +15,7 @@
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" enctype="multipart/form-data">
         <div class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
@@ -76,6 +76,7 @@
                     <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                     <asp:ScriptReference Name="WebFormsBundle" />
                     <%--Site Scripts--%>
+                    <asp:ScriptReference Path="~/Scripts/jquery-1.10.2.min.js" />
                     <asp:ScriptReference Path="~/Scripts/bootstrap.js" />
 
                 </Scripts>
