@@ -13,9 +13,9 @@ namespace IdentityTest.DataProviders
             int prKey = -1;
 
             string sql = @"
-                INSERT INTO Resources (Title, Description, DateCreated, DateModified, Owner, ModifiedBy, IsActive, ResourceType, Module, Url, IsFeatured, DifficultyLevel)
+                INSERT INTO Resources (Title, Description, DateCreated, DateModified, Owner, ModifiedBy, IsActive, ResourceType, Module, Url, IsFeatured, DifficultyLevel, ImageUrl)
                 OUTPUT Inserted.ID
-                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @Module, @Url, @IsFeatured, @DifficultyLevel);";
+                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @Module, @Url, @IsFeatured, @DifficultyLevel, @ImageUrl);";
 
             prKey = DapperUtil.ExecuteInsert(sql, new
             {
@@ -23,6 +23,7 @@ namespace IdentityTest.DataProviders
                 Description = module.Description,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
+                ImageUrl = module.ImageUrl,
                 Owner = -1,
                 ModifiedBy = -1,
                 IsActive = true,

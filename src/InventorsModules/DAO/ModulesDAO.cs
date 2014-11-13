@@ -20,9 +20,9 @@ namespace WebApplication1
             int id = -1;
 
             string sql = @"
-                INSERT INTO Modules (Title, Description, DateCreated, DateModified, Owner, IsActive, IsPrivate, IsFeatured, ModifiedBy)
+                INSERT INTO Modules (Title, Description, DateCreated, DateModified, Owner, IsActive, IsPrivate, IsFeatured, ModifiedBy, ImageUrl)
                 OUTPUT Inserted.ID
-                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @IsActive, @IsPrivate, @IsFeatured, @ModifiedBy);";
+                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @IsActive, @IsPrivate, @IsFeatured, @ModifiedBy, @ImageUrl);";
 
             id = DapperUtil.ExecuteInsert(sql, new {
                 Title = module.Title,
@@ -30,6 +30,7 @@ namespace WebApplication1
                 DateCreated = module.DateCreated,
                 DateModified = module.DateModified,
                 Owner = -1,
+                ImageUrl = module.ImageUrl,
                 IsActive = true,
                 IsPrivate = false,
                 IsFeatured = false,

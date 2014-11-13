@@ -11,6 +11,10 @@
                 <asp:TextBox ID="txtTitle" runat="server" Width="250px"></asp:TextBox>
             </li>
             <li>
+                <asp:Label ID="lblImgUrl" runat="server" Text="Upload module image"></asp:Label>
+                <asp:FileUpload runat="server" ID="ModuleImage" />
+            </li>
+            <li>
                 <asp:Label ID="lblDescription" runat="server" Text="Description: "></asp:Label>
                 <asp:TextBox ID="txtDescription" runat="server" Width="300px" TextMode="MultiLine"></asp:TextBox>
             </li>

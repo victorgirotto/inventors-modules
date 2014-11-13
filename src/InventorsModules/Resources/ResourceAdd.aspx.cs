@@ -1,4 +1,5 @@
 ﻿using IdentityTest.DataProviders;
+using IdentityTest.Helpers;
 using IdentityTest.Models;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace IdentityTest.Modules
 
         protected void CreateResource_Click(object sender, EventArgs e)
         {
+            string path = Server.MapPath("~");
             int moduleId = -1;
             string idValue = Page.RouteData.Values["id"] != null ? Page.RouteData.Values["id"].ToString() : null;
 
@@ -26,10 +28,14 @@ namespace IdentityTest.Modules
                 bool converted = Int32.TryParse(idValue, out moduleId);
                 if (converted)
                 {
+
+                    string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
+
                     Resource resource = new Resource()
                     {
                         Title = ResourceTitle.Text,
                         Url = ResourceUrl.Text,
+                        ImageUrl = imageUrl,
                         Description = ResourceDescription.Text,
                         ModuleFk = moduleId
                     };

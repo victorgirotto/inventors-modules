@@ -152,7 +152,7 @@
                                 <div class="col-md-3">
                                     <div class="grid-item">
                                         <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("Id")) %>'>
-                                            <div>&nbsp;</div>
+                                            <asp:Image runat="server" ImageUrl='<%# IdentityTest.Helpers.ImageHelper.GetImageThumbUrl(Eval("ImageUrl").ToString()) %>' />
                                         </asp:HyperLink>
                                         <h4>
                                             <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("Id")) %>'>

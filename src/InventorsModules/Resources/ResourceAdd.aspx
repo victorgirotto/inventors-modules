@@ -15,6 +15,10 @@
             <asp:TextBox runat="server" ID="ResourceUrl"></asp:TextBox>
         </li>
         <li>
+            <asp:Label runat="server" AssociatedControlID="ResourceImage">Upload Image</asp:Label>
+            <asp:FileUpload ID="ResourceImage" runat="server" />
+        </li>
+        <li>
             <asp:Label runat="server" AssociatedControlID="ResourceDescription">Description</asp:Label>
             <asp:TextBox runat="server" ID="ResourceDescription" TextMode="MultiLine"></asp:TextBox>
         </li>

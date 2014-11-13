@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json.Linq;
 using IdentityTest.Models;
+using IdentityTest.Helpers;
 
 namespace WebApplication1
 {
@@ -21,16 +22,18 @@ namespace WebApplication1
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            
+            string path = Server.MapPath("~");
             string title = txtTitle.Text.Trim();
             string description = txtDescription.Text.Trim();
             bool isPrivate = chkboxPrivateModule.Checked;
+            string imageUrl = ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
 
             Module module = new Module()
             {
                 Title = title,
                 Description = description,
                 IsPrivate = isPrivate,
+                ImageUrl = imageUrl,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now
             };

@@ -30,50 +30,6 @@
         </div>
         <div class="col-md-9">
             <div class="spaced">
-                <h3>Featured Modules</h3>
-                
-                <div class="row">
-                    <asp:Repeater ID="FeaturedModulesRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="col-md-3">
-                                <div class="grid-item">
-                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
-                                        <div>&nbsp;</div>
-                                    </asp:HyperLink>
-                                    <h4>
-                                        <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
-                                            <%#Eval("title")%>
-                                        </asp:HyperLink>
-                                    </h4>
-                                    <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
-                                </div>
-                            </div>        
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-
-                <h3>Best Rated Modules</h3>
-
-                <div class="row">
-                    <asp:Repeater ID="BestModulesRepeater" runat="server">
-                        <ItemTemplate>
-                            <div class="col-md-3">
-                                <div class="grid-item">
-                                    <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
-                                        <div>&nbsp;</div>
-                                    </asp:HyperLink>
-                                    <h4>
-                                        <asp:HyperLink runat="server" NavigateUrl="#">
-                                            <%#Eval("title")%>
-                                        </asp:HyperLink>
-                                    </h4>
-                                    <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
-                                </div>
-                            </div>        
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-
                 <h3>Recently Added Modules</h3>
 
                 <div class="row not-spaced">
@@ -82,7 +38,7 @@
                             <div class="col-md-3">
                                 <div class="grid-item">
                                     <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
-                                        <div>&nbsp;</div>
+                                        <asp:Image runat="server" ImageUrl='<%# IdentityTest.Helpers.ImageHelper.GetImageThumbUrl(Eval("ImageUrl").ToString()) %>' />
                                     </asp:HyperLink>
                                     <h4>
                                         <asp:HyperLink runat="server" NavigateUrl="#">

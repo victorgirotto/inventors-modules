@@ -17,12 +17,7 @@ namespace WebApplication1.Pages.Modules
             ModulesDAO dataProvider = new ModulesDAO();
             IEnumerable<Module> modules = dataProvider.SelectModulesAll();
 
-            FeaturedModulesRepeater.DataSource = modules;
-            BestModulesRepeater.DataSource = modules;
             RecentModulesRepeater.DataSource = modules;
-
-            FeaturedModulesRepeater.DataBind();
-            BestModulesRepeater.DataBind();
             RecentModulesRepeater.DataBind();
             
         }
