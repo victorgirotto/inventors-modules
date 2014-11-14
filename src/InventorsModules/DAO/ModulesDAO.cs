@@ -12,7 +12,16 @@ namespace WebApplication1
     {
         public IEnumerable<Module> SelectModulesAll()
         {
-            return DapperUtil.SelectMany<Module>("select * from Modules");
+            var lookup = new Dictionary<int, Module>();
+            return DapperUtil.SelectManyJoin<Module, User, Module>(
+                @"SELECT * FROM Modules m
+                LEFT JOIN AspNetUsers u ON m.OwnerId = u.Id",
+                (module, user) =>
+                {
+                    module.Owner = user;
+                    return module;
+                }
+            );
         }
 
         public int InsertModule(Module module)
@@ -29,12 +38,12 @@ namespace WebApplication1
                 Description = module.Description,
                 DateCreated = module.DateCreated,
                 DateModified = module.DateModified,
-                Owner = -1,
+                Owner = module.Owner.Id,
                 ImageUrl = module.ImageUrl,
                 IsActive = true,
                 IsPrivate = false,
                 IsFeatured = false,
-                ModifiedBy = -1
+                ModifiedBy = module.ModifiedBy.Id
             });
             
             return id;
@@ -42,7 +51,19 @@ namespace WebApplication1
 
         public Module SelectModuleById(int id)
         {
-            return DapperUtil.SelectOne<Module>("select * from Modules where Id = @id", new { id = id });
+            string query = 
+                @"SELECT * FROM Modules m
+                    INNER JOIN AspNetUsers u ON m.OwnerId = u.Id 
+                    WHERE m.Id = @id";
+            return DapperUtil.SelectOneJoin<Module, User, Module>(
+                query, 
+                (module, user) =>
+                {
+                    module.Owner = user;
+                    return module;
+                },
+                new { id = id }
+            );
         }
     }
 }

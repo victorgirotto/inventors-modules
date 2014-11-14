@@ -24,8 +24,8 @@ namespace IdentityTest.DataProviders
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ImageUrl = module.ImageUrl,
-                Owner = -1,
-                ModifiedBy = -1,
+                Owner = module.Owner.Id,
+                ModifiedBy = module.ModifiedBy.Id,
                 IsActive = true,
                 ResourceType = 1,
                 Module = module.ModuleFk,
@@ -40,12 +40,29 @@ namespace IdentityTest.DataProviders
 
         public Resource SelectResourceById(int id)
         {
-            return DapperUtil.SelectOne<Resource>("select * from Resources where Id = @Id", new { Id = id });
+            return DapperUtil.SelectOneJoin<Resource, User, Resource>(
+                @"SELECT * FROM Resources r
+                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id
+                WHERE r.Id = @Id", 
+                (resource, user) => {
+                    resource.Owner = user;
+                    return resource;
+                },
+                new { Id = id }
+            );
         }
 
         public IEnumerable<Resource> SelectResourcesByModule(int moduleId)
         {
-            return DapperUtil.SelectMany<Resource>("select * from Resources where Module = @ModuleId", new { ModuleId = moduleId });
+            return DapperUtil.SelectManyJoin<Resource, User, Resource>(
+                @"SELECT * FROM Resources r
+                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id",
+                (resource, user) =>
+                {
+                    resource.Owner = user;
+                    return resource;
+                }
+            );
         }
     }
 }

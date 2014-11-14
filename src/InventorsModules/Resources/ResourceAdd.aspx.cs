@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace IdentityTest.Modules
 {
@@ -30,6 +31,7 @@ namespace IdentityTest.Modules
                 {
 
                     string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
+                    int userId = User.Identity.GetUserId<int>();
 
                     Resource resource = new Resource()
                     {
@@ -37,7 +39,9 @@ namespace IdentityTest.Modules
                         Url = ResourceUrl.Text,
                         ImageUrl = imageUrl,
                         Description = ResourceDescription.Text,
-                        ModuleFk = moduleId
+                        ModuleFk = moduleId,
+                        Owner = new User(userId),
+                        ModifiedBy = new User(userId)
                     };
 
                     ResourcesDAO provider = new ResourcesDAO();

@@ -14,7 +14,9 @@ $border-radius: 6px;
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-body {}
+body {
+    background: #EEE;
+}
 
 input[type=text],
 input[type=search] {
@@ -31,6 +33,7 @@ textarea {
     background: $iw-color;
     border: none;
     border-radius: 0;
+    margin-bottom: 0;
 
     .navbar-brand {
         color: white;
@@ -123,10 +126,18 @@ h4 {
     font-weight: bolder;
 }
 
+.container {
+    
+}
+
+.main-container {
+    background: white;
+    padding: $padding;
+}
+
 .inner-container {
     background: #EEE;
     padding: $padding;
-    border-radius: $border-radius;
 }
 
 h1:first-child,
@@ -169,13 +180,18 @@ h4:first-child {
 }
 
 .menu {
+
+    padding-top: $padding;
+
     input {
         width: 100%;
+        margin-bottom: $padding;
     }
 
     ul {
-        padding: 0 10px;
+        padding: 0;
         list-style-type: none;
+        margin-bottom: $padding;
     }
 }
 

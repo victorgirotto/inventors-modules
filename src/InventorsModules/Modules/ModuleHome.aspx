@@ -5,16 +5,10 @@
 
     <div class="row">
         <div class="col-md-3">
-            <div class="inner-container menu">
+            <div class="menu">
 
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in module"></asp:TextBox>
                 
-                <h5>
-                    <a href="#" class="btn btn-default">Home</a>
-                    <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Resources/{0}/ResourceAdd" CssClass="btn btn-primary">
-                        New Resource
-                    </asp:HyperLink>
-                </h5>
                 <ul>
                     <li><a href="#">Videos</a></li>
                     <li><a href="#">Hands-on Activities</a></li>
@@ -26,9 +20,15 @@
                     <li><a href="#">Websites</a></li>
                 </ul>
                 
+                <h5>
+                    <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Resources/{0}/ResourceAdd" CssClass="btn btn-primary">
+                        New Resource
+                    </asp:HyperLink>
+                </h5>
+
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 main-container">
             <h2><asp:Label runat="server" ID="ModuleTitleLabel"></asp:Label></h2>
             <p><asp:Label runat="server" ID="ModuleDescriptionLabel"></asp:Label></p>
 
@@ -159,7 +159,7 @@
                                                 <%#Eval("title")%>
                                             </asp:HyperLink>
                                         </h4>
-                                        <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                        <h5>By <asp:HyperLink runat="server" NavigateUrl="#"><%# Eval("Owner.Username") %></asp:HyperLink></h5>
                                     </div>
                                 </div>
                             </ItemTemplate>

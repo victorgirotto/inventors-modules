@@ -61,7 +61,7 @@ namespace IdentityTest.Account
                         return;
                     }
 
-                    var result = manager.AddLogin(User.Identity.GetUserId(), verifiedloginInfo.Login);
+                    var result = manager.AddLogin(User.Identity.GetUserId<int>(), verifiedloginInfo.Login);
                     if (result.Succeeded)
                     {
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

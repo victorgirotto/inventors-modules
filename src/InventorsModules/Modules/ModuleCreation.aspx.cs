@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using Newtonsoft.Json.Linq;
 using IdentityTest.Models;
 using IdentityTest.Helpers;
+using Microsoft.AspNet.Identity;
 
 namespace WebApplication1
 {
@@ -27,6 +28,7 @@ namespace WebApplication1
             string description = txtDescription.Text.Trim();
             bool isPrivate = chkboxPrivateModule.Checked;
             string imageUrl = ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
+            int userId = User.Identity.GetUserId<int>();
 
             Module module = new Module()
             {
@@ -35,7 +37,9 @@ namespace WebApplication1
                 IsPrivate = isPrivate,
                 ImageUrl = imageUrl,
                 DateCreated = DateTime.Now,
-                DateModified = DateTime.Now
+                DateModified = DateTime.Now,
+                Owner = new User(userId),
+                ModifiedBy = new User(userId)
             };
 
             ModulesDAO DP = new ModulesDAO();

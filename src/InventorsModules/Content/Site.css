@@ -3,6 +3,9 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+body {
+  background: #EEE; }
+
 input[type=text], input[type=search] {
   border: solid 1px #CCC;
   line-height: 2em;
@@ -14,7 +17,8 @@ textarea {
 .navbar-default {
   background: #268674;
   border: none;
-  border-radius: 0; }
+  border-radius: 0;
+  margin-bottom: 0; }
   .navbar-default .navbar-brand {
     color: white; }
     .navbar-default .navbar-brand img {
@@ -72,10 +76,13 @@ img {
 h4 {
   font-weight: bolder; }
 
+.main-container {
+  background: white;
+  padding: 20px; }
+
 .inner-container {
   background: #EEE;
-  padding: 20px;
-  border-radius: 6px; }
+  padding: 20px; }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child {
   margin-top: 0px; }
@@ -101,11 +108,15 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
     border: none;
     height: 40px; }
 
-.menu input {
-  width: 100%; }
-.menu ul {
-  padding: 0 10px;
-  list-style-type: none; }
+.menu {
+  padding-top: 20px; }
+  .menu input {
+    width: 100%;
+    margin-bottom: 20px; }
+  .menu ul {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 20px; }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 767px) {

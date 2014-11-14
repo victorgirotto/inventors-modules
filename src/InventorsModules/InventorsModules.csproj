@@ -368,6 +368,9 @@
     <Compile Include="DAO\DapperUtil.cs" />
     <Compile Include="DAO\ModulesDAO.cs" />
     <Compile Include="DAO\ResourcesDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Models\DBModel.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
