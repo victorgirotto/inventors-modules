@@ -24,11 +24,15 @@ namespace WebApplication1.Pages.Modules
                     ModulesDAO dp = new ModulesDAO();
                     Module module = dp.SelectModuleById(moduleId);
 
+                    Page.Title = module.Title;
+
                     ModuleTitleLabel.Text = module.Title;
                     ModuleDescriptionLabel.Text = module.Description;
 
-                    // Add module ID to add resources link
-                    AddResourceLink.NavigateUrl = String.Format(AddResourceLink.NavigateUrl, moduleId);
+                    // Add module ID to add resources link if logged in
+                    HyperLink addResourceLink = (HyperLink)AddResourceLV.FindControl("AddResourceLink");
+                    if(addResourceLink != null)
+                        addResourceLink.NavigateUrl = String.Format(addResourceLink.NavigateUrl, moduleId);
 
                     // Loading resources
                     ResourcesDAO resourcesDP = new ResourcesDAO();

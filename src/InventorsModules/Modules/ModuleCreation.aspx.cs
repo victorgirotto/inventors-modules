@@ -46,39 +46,8 @@ namespace WebApplication1
             int prKey = DP.InsertModule(module);
 
             Response.Redirect(String.Format("~/Modules/{0}", prKey));
-
-            /*
-            foreach (ListItem item in cblSearchResults.Items)
-            {
-                if (item.Selected == true)
-                {
-                    DP.InsertResource(item.Text, item.Value, null, 1234, 1234, 1, 1234, prKey);
-                }
-            }
-            */
             
         }
 
-        /*
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-            string title = txtTitle.Text.Trim();
-            string[] tags = txtTags.Text.Split(',');
-
-            SearchResult[] searchResults = new SearchResult[0];
-
-            cblSearchResults.Items.Clear();
-            foreach (SearchResult result in searchResults)
-            {
-                ListItem item = new ListItem();
-                item.Text = result.title + result.description;
-                item.Value = result.url;
-                item.Attributes["title"] = result.title;
-                item.Attributes["description"] = result.description;
-                cblSearchResults.Items.Add(item);
-            }
-            PanelSearchResults.Visible = true;
-        }
-         * */
     }
 }

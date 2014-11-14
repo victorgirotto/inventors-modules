@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="True" CodeBehind="ModuleHome.aspx.cs" Inherits="WebApplication1.Pages.Modules.ModuleHome" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="True" CodeBehind="ModuleHome.aspx.cs" Inherits="WebApplication1.Pages.Modules.ModuleHome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -19,12 +19,16 @@
                     <li><a href="#">Spaces</a></li>
                     <li><a href="#">Websites</a></li>
                 </ul>
-                
-                <h5>
-                    <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Resources/{0}/ResourceAdd" CssClass="btn btn-primary">
-                        New Resource
-                    </asp:HyperLink>
-                </h5>
+
+                <asp:LoginView runat="server" ID="AddResourceLV">
+                    <LoggedInTemplate>
+                        <h5>
+                            <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Resources/{0}/ResourceAdd" CssClass="btn btn-primary">
+                                New Resource
+                            </asp:HyperLink>
+                        </h5>
+                    </LoggedInTemplate>
+                </asp:LoginView>
 
             </div>
         </div>

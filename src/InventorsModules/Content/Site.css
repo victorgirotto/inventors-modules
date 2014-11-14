@@ -44,6 +44,9 @@ textarea {
       .navbar-default ul.navbar-nav li a:hover {
         background-color: #55BDA8; }
 
+.light {
+  color: #999; }
+
 .no-bullets {
   list-style-type: none;
   padding-left: 0; }

@@ -61,6 +61,8 @@
 
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
 
+            <p class="spaced centralized light">Inventors' Workshops (alpha version). Ask. Act. Advise.</p>
+
             <asp:ScriptManager runat="server">
                 <Scripts>
                     <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>

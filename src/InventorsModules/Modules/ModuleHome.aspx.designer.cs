@@ -13,13 +13,13 @@ namespace WebApplication1.Pages.Modules {
     public partial class ModuleHome {
         
         /// <summary>
-        /// AddResourceLink control.
+        /// AddResourceLV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink AddResourceLink;
+        protected global::System.Web.UI.WebControls.LoginView AddResourceLV;
         
         /// <summary>
         /// ModuleTitleLabel control.
