@@ -13,9 +13,9 @@ namespace IdentityTest.DataProviders
             int prKey = -1;
 
             string sql = @"
-                INSERT INTO Resources (Title, Description, DateCreated, DateModified, Owner, ModifiedBy, IsActive, ResourceType, Module, Url, IsFeatured, DifficultyLevel, ImageUrl)
+                INSERT INTO Resources (Title, Description, DateCreated, DateModified, OwnerId, ModifiedById, IsActive, ResourceType, ModuleId, Url, IsFeatured, DifficultyLevel, ImageUrl)
                 OUTPUT Inserted.ID
-                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @Module, @Url, @IsFeatured, @DifficultyLevel, @ImageUrl);";
+                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @ModuleId, @Url, @IsFeatured, @DifficultyLevel, @ImageUrl);";
 
             prKey = DapperUtil.ExecuteInsert(sql, new
             {
@@ -28,7 +28,7 @@ namespace IdentityTest.DataProviders
                 ModifiedBy = module.ModifiedBy.Id,
                 IsActive = true,
                 ResourceType = 1,
-                Module = module.ModuleFk,
+                ModuleId = module.ModuleFk,
                 Url = module.Url,
                 IsFeatured = false,
                 DifficultyLevel = 1
@@ -56,11 +56,15 @@ namespace IdentityTest.DataProviders
         {
             return DapperUtil.SelectManyJoin<Resource, User, Resource>(
                 @"SELECT * FROM Resources r
-                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id",
+                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id
+                WHERE r.ModuleId = @Id",
                 (resource, user) =>
                 {
                     resource.Owner = user;
                     return resource;
+                },
+                new { 
+                    Id = moduleId
                 }
             );
         }

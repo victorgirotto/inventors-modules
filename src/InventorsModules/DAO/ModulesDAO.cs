@@ -29,7 +29,7 @@ namespace WebApplication1
             int id = -1;
 
             string sql = @"
-                INSERT INTO Modules (Title, Description, DateCreated, DateModified, Owner, IsActive, IsPrivate, IsFeatured, ModifiedBy, ImageUrl)
+                INSERT INTO Modules (Title, Description, DateCreated, DateModified, OwnerId, IsActive, IsPrivate, IsFeatured, ModifiedById, ImageUrl)
                 OUTPUT Inserted.ID
                 VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @IsActive, @IsPrivate, @IsFeatured, @ModifiedBy, @ImageUrl);";
 

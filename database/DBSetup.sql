@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[Resources](
 	[DifficultyLevel] [int] NOT NULL,
 	[IsActive] [bit] NOT NULL,
 	[ResourceType] [int] NOT NULL,
-	[Module] [int] NOT NULL,
+	[ModuleId] [int] NOT NULL,
 	[IsFeatured] [bit] NOT NULL,
  CONSTRAINT [PK_Resources] PRIMARY KEY CLUSTERED 
 (

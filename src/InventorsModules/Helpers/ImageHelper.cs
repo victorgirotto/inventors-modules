@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -31,7 +32,7 @@ namespace IdentityTest.Helpers
 
             int file_append = 0;
             string filePath = serverPath + m_uploadDirectory;
-            string sFilename = Path.GetFileName(image.FileName); 
+            string sFilename = Path.GetFileName(image.FileName);
 
             /*
              * The commented code below is to be used when we need to save the image as it is uploaded.
@@ -76,7 +77,13 @@ namespace IdentityTest.Helpers
 
                 // Save thumbnail and output it onto the webpage
                 Image myThumbnail = myBitmap.GetThumbnailImage(m_thumbWidth, m_thumbHeight, myCallBack, IntPtr.Zero);
-                myThumbnail.Save(filePath + sThumbFile);
+                FileStream newFile = new FileStream(filePath + sThumbFile, FileMode.Create);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    myThumbnail.Save(stream, ImageFormat.Jpeg);
+                    byte[] b = stream.ToArray();
+                    newFile.Write(b, 0, b.Length);
+                }
 
                 // Destroy objects
                 myThumbnail.Dispose();
