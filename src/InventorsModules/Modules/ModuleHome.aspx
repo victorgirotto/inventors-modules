@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="menu">
 
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in module"></asp:TextBox>
@@ -28,10 +28,12 @@
 
             </div>
         </div>
-        <div class="col-md-9 main-container">
+        <div class="col-md-10 main-container">
+            
             <h2><asp:Label runat="server" ID="ModuleTitleLabel"></asp:Label></h2>
-            <p><asp:Label runat="server" ID="ModuleDescriptionLabel"></asp:Label></p>
-
+            <p class="spaced"><asp:Label runat="server" ID="ModuleDescriptionLabel"></asp:Label></p>
+            
+            <!--
             <div class="row spaced">
                 <div class="col-md-9">
                     <div class="news-flash inner-container">
@@ -142,8 +144,8 @@
             </div>
 
             <div class="row spaced separator">
-
-                <div class="col-md-12 spaced">
+            -->
+                <div class="">
                     <h3>Most Recent Resources</h3>
                 
                     <div class="row">
@@ -166,7 +168,7 @@
                         </asp:Repeater>        
                     </div>
                 </div>
-            </div>
+            <!--</div>-->
         </div>
     </div>
 

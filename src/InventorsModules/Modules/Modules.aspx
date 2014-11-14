@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="menu">
 
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in modules"></asp:TextBox>
@@ -27,7 +27,7 @@
 
             </div>
         </div>
-        <div class="col-md-9 main-container">
+        <div class="col-md-10 main-container">
             <div class="spaced">
                 <h3>Recently Added Modules</h3>
 

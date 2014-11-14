@@ -16,6 +16,9 @@ textarea {
 
 .navbar-default {
   background: #268674;
+  background-image: url("../Images/border.png");
+  background-position: bottom;
+  background-repeat: repeat-x;
   border: none;
   border-radius: 0;
   margin-bottom: 0; }
@@ -66,6 +69,9 @@ input[type=checkbox] {
 
 .spaced > * {
   margin-bottom: 20px; }
+
+p.spaced {
+  padding: 20px 0; }
 
 .not-spaced {
   margin-bottom: 0 !important; }
@@ -133,6 +139,13 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
     .navbar-default ul.navbar-nav li a {
       width: 100%; }
  }
+
+.centralized {
+  text-align: center; }
+
+.subtitle {
+  margin-top: -8px;
+  font-size: 1em; }
 
 .grid-item {
   text-align: center;

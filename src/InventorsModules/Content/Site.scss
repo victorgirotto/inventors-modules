@@ -31,6 +31,9 @@ textarea {
 
 .navbar-default {
     background: $iw-color;
+    background-image: url("../Images/border.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
     border: none;
     border-radius: 0;
     margin-bottom: 0;
@@ -112,6 +115,10 @@ input[type=checkbox]{
 
 .spaced > * {
     margin-bottom: 20px;
+}
+
+p.spaced {
+    padding: $padding 0;
 }
 
 .not-spaced {
@@ -230,6 +237,15 @@ h4:first-child {
             }
         }
     }
+}
+
+.centralized {
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: -8px;
+    font-size: 1em;
 }
 
 .grid-item {
