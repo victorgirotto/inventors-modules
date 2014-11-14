@@ -23,7 +23,7 @@ namespace IdentityTest.Account
             if (code != null && userId != null)
             {
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var result = manager.ConfirmEmail(userId, code);
+                var result = manager.ConfirmEmail(Int32.Parse(userId), code);
                 if (result.Succeeded)
                 {
                     successPanel.Visible = true;

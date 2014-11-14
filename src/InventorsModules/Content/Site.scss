@@ -14,7 +14,9 @@ $border-radius: 6px;
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-body {}
+body {
+    background: #EEE;
+}
 
 input[type=text],
 input[type=search] {
@@ -29,8 +31,12 @@ textarea {
 
 .navbar-default {
     background: $iw-color;
+    background-image: url("../Images/border.png");
+    background-position: bottom;
+    background-repeat: repeat-x;
     border: none;
     border-radius: 0;
+    margin-bottom: 0;
 
     .navbar-brand {
         color: white;
@@ -72,6 +78,10 @@ textarea {
     }
 }
 
+.light {
+    color: #999;
+}
+
 .no-bullets {
     list-style-type: none;
     padding-left: 0;
@@ -111,6 +121,10 @@ input[type=checkbox]{
     margin-bottom: 20px;
 }
 
+p.spaced {
+    padding: $padding 0;
+}
+
 .not-spaced {
     margin-bottom: 0 !important;
 }
@@ -123,10 +137,18 @@ h4 {
     font-weight: bolder;
 }
 
+.container {
+    
+}
+
+.main-container {
+    background: white;
+    padding: $padding;
+}
+
 .inner-container {
     background: #EEE;
     padding: $padding;
-    border-radius: $border-radius;
 }
 
 h1:first-child,
@@ -169,13 +191,18 @@ h4:first-child {
 }
 
 .menu {
+
+    padding-top: $padding;
+
     input {
         width: 100%;
+        margin-bottom: $padding;
     }
 
     ul {
-        padding: 0 10px;
+        padding: 0;
         list-style-type: none;
+        margin-bottom: $padding;
     }
 }
 
@@ -214,6 +241,15 @@ h4:first-child {
             }
         }
     }
+}
+
+.centralized {
+    text-align: center;
+}
+
+.subtitle {
+    margin-top: -8px;
+    font-size: 1em;
 }
 
 .grid-item {

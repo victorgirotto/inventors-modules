@@ -1,20 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="True" CodeBehind="ModuleHome.aspx.cs" Inherits="WebApplication1.Pages.Modules.ModuleHome" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="True" CodeBehind="ModuleHome.aspx.cs" Inherits="WebApplication1.Pages.Modules.ModuleHome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <div class="col-md-3">
-            <div class="inner-container menu">
+        <div class="col-md-2">
+            <div class="menu">
 
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in module"></asp:TextBox>
                 
-                <h5>
-                    <a href="#" class="btn btn-default">Home</a>
-                    <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Modules/{0}/ResourceAdd" CssClass="btn btn-primary">
-                        New Resource
-                    </asp:HyperLink>
-                </h5>
                 <ul>
                     <li><a href="#">Videos</a></li>
                     <li><a href="#">Hands-on Activities</a></li>
@@ -25,13 +19,25 @@
                     <li><a href="#">Spaces</a></li>
                     <li><a href="#">Websites</a></li>
                 </ul>
-                
+
+                <asp:LoginView runat="server" ID="AddResourceLV">
+                    <LoggedInTemplate>
+                        <h5>
+                            <asp:HyperLink runat="server" ID="AddResourceLink" NavigateUrl="~/Resources/{0}/ResourceAdd" CssClass="btn btn-primary">
+                                New Resource
+                            </asp:HyperLink>
+                        </h5>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10 main-container">
+            
             <h2><asp:Label runat="server" ID="ModuleTitleLabel"></asp:Label></h2>
-            <p><asp:Label runat="server" ID="ModuleDescriptionLabel"></asp:Label></p>
-
+            <p class="spaced"><asp:Label runat="server" ID="ModuleDescriptionLabel"></asp:Label></p>
+            
+            <!--
             <div class="row spaced">
                 <div class="col-md-9">
                     <div class="news-flash inner-container">
@@ -142,8 +148,8 @@
             </div>
 
             <div class="row spaced separator">
-
-                <div class="col-md-12 spaced">
+            -->
+                <div class="">
                     <h3>Most Recent Resources</h3>
                 
                     <div class="row">
@@ -152,21 +158,21 @@
                                 <div class="col-md-3">
                                     <div class="grid-item">
                                         <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("Id")) %>'>
-                                            <div>&nbsp;</div>
+                                            <asp:Image runat="server" ImageUrl='<%# IdentityTest.Helpers.ImageHelper.GetImageThumbUrl(Eval("ImageUrl").ToString()) %>' />
                                         </asp:HyperLink>
                                         <h4>
                                             <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Resources/{0}", Eval("Id")) %>'>
                                                 <%#Eval("title")%>
                                             </asp:HyperLink>
                                         </h4>
-                                        <h5>By <asp:HyperLink runat="server" NavigateUrl="#">John Doe</asp:HyperLink></h5>
+                                        <h5>By <asp:HyperLink runat="server" NavigateUrl="#"><%# Eval("Owner.Username") %></asp:HyperLink></h5>
                                     </div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>        
                     </div>
                 </div>
-            </div>
+            <!--</div>-->
         </div>
     </div>
 

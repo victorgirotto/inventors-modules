@@ -16,7 +16,7 @@ namespace IdentityTest
 
             // Routes
             routes.MapPageRoute("moduleHome", "Modules/{id}", "~/Modules/ModuleHome.aspx");
-            routes.MapPageRoute("addResource", "Modules/{id}/ResourceAdd", "~/Modules/ResourceAdd.aspx");
+            routes.MapPageRoute("addResource", "Resources/{id}/ResourceAdd", "~/Resources/ResourceAdd.aspx");
             routes.MapPageRoute("viewResource", "Resources/{id}", "~/Resources/Resource.aspx");
         }
     }

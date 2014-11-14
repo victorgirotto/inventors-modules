@@ -1,4 +1,5 @@
 ﻿using IdentityTest.DataProviders;
+using IdentityTest.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,11 @@ namespace IdentityTest.Resources
                     IdentityTest.Models.Resource resource = resourcesDp.SelectResourceById(resourceId);
 
                     ResourceTitle.Text = resource.Title;
+                    ResourceDescription.Text = resource.Description;
                     ResourceLink.NavigateUrl = resource.Url;
+                    ResourceImage.ImageUrl = ImageHelper.GetImageThumbUrl(resource.ImageUrl);
+                    CreatedBy.Text = resource.Owner.UserName;
+                    DateCreated.Text = resource.DateCreated.ToShortDateString();
                 }
                 else
                 {

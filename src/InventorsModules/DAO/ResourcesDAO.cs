@@ -13,9 +13,9 @@ namespace IdentityTest.DataProviders
             int prKey = -1;
 
             string sql = @"
-                INSERT INTO Resources (Title, Description, DateCreated, DateModified, Owner, ModifiedBy, IsActive, ResourceType, Module, Url, IsFeatured, DifficultyLevel)
+                INSERT INTO Resources (Title, Description, DateCreated, DateModified, Owner, ModifiedBy, IsActive, ResourceType, Module, Url, IsFeatured, DifficultyLevel, ImageUrl)
                 OUTPUT Inserted.ID
-                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @Module, @Url, @IsFeatured, @DifficultyLevel);";
+                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @Module, @Url, @IsFeatured, @DifficultyLevel, @ImageUrl);";
 
             prKey = DapperUtil.ExecuteInsert(sql, new
             {
@@ -23,8 +23,9 @@ namespace IdentityTest.DataProviders
                 Description = module.Description,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
-                Owner = -1,
-                ModifiedBy = -1,
+                ImageUrl = module.ImageUrl,
+                Owner = module.Owner.Id,
+                ModifiedBy = module.ModifiedBy.Id,
                 IsActive = true,
                 ResourceType = 1,
                 Module = module.ModuleFk,
@@ -39,12 +40,29 @@ namespace IdentityTest.DataProviders
 
         public Resource SelectResourceById(int id)
         {
-            return DapperUtil.SelectOne<Resource>("select * from Resources where Id = @Id", new { Id = id });
+            return DapperUtil.SelectOneJoin<Resource, User, Resource>(
+                @"SELECT * FROM Resources r
+                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id
+                WHERE r.Id = @Id", 
+                (resource, user) => {
+                    resource.Owner = user;
+                    return resource;
+                },
+                new { Id = id }
+            );
         }
 
         public IEnumerable<Resource> SelectResourcesByModule(int moduleId)
         {
-            return DapperUtil.SelectMany<Resource>("select * from Resources where Module = @ModuleId", new { ModuleId = moduleId });
+            return DapperUtil.SelectManyJoin<Resource, User, Resource>(
+                @"SELECT * FROM Resources r
+                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id",
+                (resource, user) =>
+                {
+                    resource.Owner = user;
+                    return resource;
+                }
+            );
         }
     }
 }

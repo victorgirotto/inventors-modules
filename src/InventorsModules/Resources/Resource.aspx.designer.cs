@@ -13,6 +13,15 @@ namespace IdentityTest.Resources {
     public partial class Resource {
         
         /// <summary>
+        /// ResourceImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ResourceImage;
+        
+        /// <summary>
         /// ResourceTitle control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,33 @@ namespace IdentityTest.Resources {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ResourceTitle;
+        
+        /// <summary>
+        /// DateCreated control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DateCreated;
+        
+        /// <summary>
+        /// CreatedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CreatedBy;
+        
+        /// <summary>
+        /// ResourceDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ResourceDescription;
         
         /// <summary>
         /// ResourceLink control.

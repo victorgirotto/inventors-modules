@@ -13,15 +13,6 @@ namespace WebApplication1 {
     public partial class _ModuleCreation {
         
         /// <summary>
-        /// PanelModuleHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelModuleHeader;
-        
-        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,24 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
+        
+        /// <summary>
+        /// lblImgUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImgUrl;
+        
+        /// <summary>
+        /// ModuleImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ModuleImage;
         
         /// <summary>
         /// lblDescription control.
