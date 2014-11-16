@@ -21,13 +21,15 @@ textarea {
   background-repeat: repeat-x;
   border: none;
   border-radius: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1); }
   .navbar-default .navbar-brand {
     color: white; }
     .navbar-default .navbar-brand img {
       height: 60px;
       border: none;
-      display: block; }
+      display: block;
+      box-shadow: none; }
     .navbar-default .navbar-brand span {
       display: none; }
   .navbar-default ul.navbar-nav li {
@@ -80,14 +82,15 @@ p.spaced {
   margin-bottom: 0 !important; }
 
 img {
-  border: solid 2px #CCC; }
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3); }
 
 h4 {
   font-weight: bolder; }
 
 .main-container {
   background: white;
-  padding: 20px; }
+  padding: 20px;
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1); }
 
 .inner-container {
   background: #EEE;
@@ -214,7 +217,6 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
   margin-top: 30px; }
 
 .jumbotron {
-  /*background: url(../Images/asu.jpg) 0 -150px;
-    background-size: cover;*/ }
+  background: url(../Images/wavegrid.png) repeat; }
 
 /*# sourceMappingURL=../../../../../../Program Files (x86)/Microsoft Visual Studio 12.0/Common7/IDE/Site.css.map */
