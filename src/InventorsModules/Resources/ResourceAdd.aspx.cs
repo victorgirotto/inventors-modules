@@ -20,44 +20,47 @@ namespace IdentityTest.Modules
 
         protected void CreateResource_Click(object sender, EventArgs e)
         {
-            string path = Server.MapPath("~");
-            int moduleId = -1;
-            string idValue = Page.RouteData.Values["id"] != null ? Page.RouteData.Values["id"].ToString() : null;
-
-            if (idValue != null)
+            if (Page.IsValid)
             {
-                bool converted = Int32.TryParse(idValue, out moduleId);
-                if (converted)
+                string path = Server.MapPath("~");
+                int moduleId = -1;
+                string idValue = Page.RouteData.Values["id"] != null ? Page.RouteData.Values["id"].ToString() : null;
+
+                if (idValue != null)
                 {
-
-                    string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
-                    int userId = User.Identity.GetUserId<int>();
-
-                    Resource resource = new Resource()
+                    bool converted = Int32.TryParse(idValue, out moduleId);
+                    if (converted)
                     {
-                        Title = ResourceTitle.Text,
-                        Url = ResourceUrl.Text,
-                        ImageUrl = imageUrl,
-                        Description = ResourceDescription.Text,
-                        ModuleFk = moduleId,
-                        Owner = new User(userId),
-                        ModifiedBy = new User(userId)
-                    };
 
-                    ResourcesDAO provider = new ResourcesDAO();
-                    int prKey = provider.InsertResource(resource);
+                        string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
+                        int userId = User.Identity.GetUserId<int>();
 
-                    // Redirect to resource page
-                    Response.Redirect("~/Resources/" + prKey);
+                        Resource resource = new Resource()
+                        {
+                            Title = ResourceTitle.Text,
+                            Url = ResourceUrl.Text,
+                            ImageUrl = imageUrl,
+                            Description = ResourceDescription.Text,
+                            ModuleFk = moduleId,
+                            Owner = new User(userId),
+                            ModifiedBy = new User(userId)
+                        };
+
+                        ResourcesDAO provider = new ResourcesDAO();
+                        int prKey = provider.InsertResource(resource);
+
+                        // Redirect to resource page
+                        Response.Redirect("~/Resources/" + prKey);
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Modules/Modules.aspx");
+                    }
                 }
                 else
                 {
                     Response.Redirect("~/Modules/Modules.aspx");
                 }
-            }
-            else
-            {
-                Response.Redirect("~/Modules/Modules.aspx");
             }
         }
     }

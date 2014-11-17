@@ -23,29 +23,33 @@ namespace WebApplication1
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string path = Server.MapPath("~");
-            string title = txtTitle.Text.Trim();
-            string description = txtDescription.Text.Trim();
-            bool isPrivate = chkboxPrivateModule.Checked;
-            string imageUrl = ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
-            int userId = User.Identity.GetUserId<int>();
-
-            Module module = new Module()
+            if (Page.IsValid)
             {
-                Title = title,
-                Description = description,
-                IsPrivate = isPrivate,
-                ImageUrl = imageUrl,
-                DateCreated = DateTime.Now,
-                DateModified = DateTime.Now,
-                Owner = new User(userId),
-                ModifiedBy = new User(userId)
-            };
+                string path = Server.MapPath("~");
+                string title = txtTitle.Text.Trim();
+                string description = txtDescription.Text.Trim();
+                bool isPrivate = chkboxPrivateModule.Checked;
+                string imageUrl = ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
+                int userId = User.Identity.GetUserId<int>();
 
-            ModulesDAO DP = new ModulesDAO();
-            int prKey = DP.InsertModule(module);
+                Module module = new Module()
+                {
+                    Title = title,
+                    Description = description,
+                    IsPrivate = isPrivate,
+                    ImageUrl = imageUrl,
+                    DateCreated = DateTime.Now,
+                    DateModified = DateTime.Now,
+                    Owner = new User(userId),
+                    ModifiedBy = new User(userId)
+                };
 
-            Response.Redirect(String.Format("~/Modules/{0}", prKey));
+                ModulesDAO DP = new ModulesDAO();
+                int prKey = DP.InsertModule(module);
+
+                Response.Redirect(String.Format("~/Modules/{0}", prKey));
+            }
+
             
         }
 

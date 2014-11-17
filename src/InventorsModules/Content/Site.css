@@ -118,7 +118,11 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
   .message img {
     position: relative;
     border: none;
-    height: 40px; }
+    height: 40px;
+    box-shadow: none; }
+
+.error {
+  color: #f24e4e; }
 
 .menu {
   padding-top: 20px; }

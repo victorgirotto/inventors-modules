@@ -188,6 +188,7 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\success.png" />
     <Content Include="Images\warning.png" />
+    <Content Include="Images\wavegrid.png" />
     <Content Include="Resources\ResourceAdd.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
