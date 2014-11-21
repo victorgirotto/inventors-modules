@@ -33,7 +33,7 @@
                     CssClass="error" />
                 <asp:RegularExpressionValidator runat="server"
                     ControlToValidate="ResourceUrl" 
-                    ValidationExpression="@^(https?|ftp)://[^\s/$.?#].[^\s]*$@iS"
+                    ValidationExpression="^(http(?:s)?\:\/\/[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,6}(?:\/?|(?:\/[\w\-]+)*)(?:\/?|\/\w+\.[a-zA-Z]{2,4}(?:\?[\w]+\=[\w\-]+)?)?(?:\&[\w]+\=[\w\-]+)*)$"
                     ErrorMessage="The URL must be valid."
                     CssClass="error"/>
                 <asp:RegularExpressionValidator runat="server"

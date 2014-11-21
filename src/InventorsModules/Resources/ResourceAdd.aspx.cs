@@ -41,7 +41,7 @@ namespace IdentityTest.Modules
                             Url = ResourceUrl.Text,
                             ImageUrl = imageUrl,
                             Description = ResourceDescription.Text,
-                            ModuleFk = moduleId,
+                            Module = new Module(moduleId),
                             Owner = new User(userId),
                             ModifiedBy = new User(userId)
                         };
