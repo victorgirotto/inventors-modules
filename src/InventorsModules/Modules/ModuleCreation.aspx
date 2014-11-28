@@ -21,6 +21,19 @@
                     CssClass="error"/>
             </li>
             <li>
+                <asp:Label ID="lblModuleType" runat="server" Text="Module type"></asp:Label><br />
+                <asp:DropDownList runat="server" 
+                    ID="ddlTypes"
+                    DataTextField="Name"
+                    DataValueField="Id">
+                </asp:DropDownList><br />
+                <asp:RequiredFieldValidator runat="server" 
+                    ControlToValidate="ddlTypes"
+                    ErrorMessage="Please select a type for the module"
+                    InitialValue="-"
+                    CssClass="error"/>
+            </li>
+            <li>
                 <asp:Label ID="lblImgUrl" runat="server" Text="Upload module image: "></asp:Label>
                 <asp:FileUpload runat="server" ID="ModuleImage" />
                 <asp:RequiredFieldValidator runat="server" 

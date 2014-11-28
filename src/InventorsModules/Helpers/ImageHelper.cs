@@ -80,7 +80,7 @@ namespace IdentityTest.Helpers
                 FileStream newFile = new FileStream(filePath + sThumbFile, FileMode.Create);
                 using (MemoryStream stream = new MemoryStream())
                 {
-                    myThumbnail.Save(stream, ImageFormat.Jpeg);
+                    myThumbnail.Save(stream, ImageFormat.Png);
                     byte[] b = stream.ToArray();
                     newFile.Write(b, 0, b.Length);
                 }

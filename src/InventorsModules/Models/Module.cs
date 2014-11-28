@@ -7,6 +7,12 @@ namespace IdentityTest.Models
 {
     public class Module : DBModel
     {
+        public Module() { }
+        public Module(int id)
+        {
+            this.Id = id;
+        }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
@@ -17,5 +23,6 @@ namespace IdentityTest.Models
         public bool IsActive { get; set; }
         public bool IsPrivate { get; set; }
         public bool IsFeatured { get; set; }
+        public ModuleType ModuleType { get; set; }
     }
 }

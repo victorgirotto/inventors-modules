@@ -11,12 +11,22 @@ namespace IdentityTest.DataProviders
 {
     public class DapperUtil
     {
-        public static IEnumerable<RT> SelectManyJoin<T1, T2, RT>(string query, Func<T1,T2,RT> mapping, object param = null)
+        public static IEnumerable<RT> SelectManyJoin<T1, T2, RT>(string query, Func<T1, T2, RT> mapping, object param = null)
         {
             string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connString))
             {
                 var rows = connection.Query<T1, T2, RT>(query, mapping, param);
+                return rows;
+            }
+        }
+
+        public static IEnumerable<RT> SelectManyJoin<T1, T2, T3, RT>(string query, Func<T1, T2, T3, RT> mapping, object param = null)
+        {
+            string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                var rows = connection.Query<T1, T2, T3, RT>(query, mapping, param);
                 return rows;
             }
         }

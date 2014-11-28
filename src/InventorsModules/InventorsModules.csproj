@@ -369,9 +369,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="DAO\DapperUtil.cs" />
     <Compile Include="DAO\ModulesDAO.cs" />
+    <Compile Include="DAO\ResourceTypesDAO.cs" />
     <Compile Include="DAO\ResourcesDAO.cs" />
+    <Compile Include="DAO\ModuleTypesDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Models\DBModel.cs" />
+    <Compile Include="Models\ResourceType.cs" />
+    <Compile Include="Models\ModuleType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using IdentityTest.Models;
+﻿using IdentityTest.DAO;
+using IdentityTest.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,11 +15,24 @@ namespace WebApplication1.Pages.Modules
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            ModulesDAO dataProvider = new ModulesDAO();
-            IEnumerable<Module> modules = dataProvider.SelectModulesAll();
+            ModulesDAO modulesDAO = new ModulesDAO();
+            ModuleTypesDAO moduleTypesDAO = new ModuleTypesDAO();
+
+            IEnumerable<Module> modules = null;
+            string type = Request.Params["type"];
+            int parsedType = 0;
+            if (type != null && Int32.TryParse(type, out parsedType))
+                modules = modulesDAO.SelectModulesByType(new ModuleType(parsedType));
+            else
+                modules = modulesDAO.SelectModulesAll();
+            
+            IEnumerable<ModuleType> moduleTypes = moduleTypesDAO.SelectAll();
 
             RecentModulesRepeater.DataSource = modules;
+            ModuleTypesRepeater.DataSource = moduleTypes;
+
             RecentModulesRepeater.DataBind();
+            ModuleTypesRepeater.DataBind();
             
         }
     }

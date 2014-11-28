@@ -22,7 +22,6 @@
                     CssClass="error"/>
             </li>
             <li>
-                
                 <asp:Label runat="server" AssociatedControlID="ResourceUrl">URL</asp:Label>
                 <asp:TextBox runat="server" ID="ResourceUrl"></asp:TextBox>
                 <br />
@@ -33,14 +32,22 @@
                     CssClass="error" />
                 <asp:RegularExpressionValidator runat="server"
                     ControlToValidate="ResourceUrl" 
-                    ValidationExpression="^(http(?:s)?\:\/\/[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,6}(?:\/?|(?:\/[\w\-]+)*)(?:\/?|\/\w+\.[a-zA-Z]{2,4}(?:\?[\w]+\=[\w\-]+)?)?(?:\&[\w]+\=[\w\-]+)*)$"
-                    ErrorMessage="The URL must be valid."
-                    CssClass="error"/>
-                <asp:RegularExpressionValidator runat="server"
-                    ControlToValidate="ResourceUrl" 
                     ValidationExpression="^[\s\S]{0,2000}$"
                     ErrorMessage="The max length of the URL is 2000 characters."
                     CssClass="error"/>
+            </li>
+            <li>
+                <asp:Label ID="lblResourceType" runat="server" Text="Resource type"></asp:Label><br />
+                <asp:DropDownList runat="server" 
+                    ID="ddlTypes"
+                    DataTextField="Name"
+                    DataValueField="Id">
+                </asp:DropDownList><br />
+                <asp:RequiredFieldValidator runat="server" 
+                    ControlToValidate="ddlTypes" 
+                    ErrorMessage="Please select a type for the resource"
+                    CssClass="error">
+                </asp:RequiredFieldValidator>
             </li>
             <li>
                 <asp:Label runat="server" AssociatedControlID="ResourceImage">Upload resource image:</asp:Label>

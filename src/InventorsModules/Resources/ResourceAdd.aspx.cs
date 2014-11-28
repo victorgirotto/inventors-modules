@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using IdentityTest.DAO;
 
 namespace IdentityTest.Modules
 {
@@ -15,7 +16,16 @@ namespace IdentityTest.Modules
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                ResourceTypesDAO resourceTypeDAO = new ResourceTypesDAO();
+                IEnumerable<ResourceType> resourceTypes = resourceTypeDAO.SelectAll();
 
+                ddlTypes.DataSource = resourceTypes;
+                ddlTypes.DataBind();
+                // Insert default option
+                ddlTypes.Items.Insert(0, new ListItem("-", String.Empty));
+            }
         }
 
         protected void CreateResource_Click(object sender, EventArgs e)
@@ -31,7 +41,6 @@ namespace IdentityTest.Modules
                     bool converted = Int32.TryParse(idValue, out moduleId);
                     if (converted)
                     {
-
                         string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
                         int userId = User.Identity.GetUserId<int>();
 
@@ -43,7 +52,8 @@ namespace IdentityTest.Modules
                             Description = ResourceDescription.Text,
                             Module = new Module(moduleId),
                             Owner = new User(userId),
-                            ModifiedBy = new User(userId)
+                            ModifiedBy = new User(userId),
+                            ResourceType = new ResourceType(Int32.Parse(ddlTypes.SelectedValue))
                         };
 
                         ResourcesDAO provider = new ResourcesDAO();

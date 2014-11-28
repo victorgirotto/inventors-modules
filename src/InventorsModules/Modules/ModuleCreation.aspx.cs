@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using IdentityTest.Models;
 using IdentityTest.Helpers;
 using Microsoft.AspNet.Identity;
+using IdentityTest.DAO;
 
 namespace WebApplication1
 {
@@ -18,7 +19,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!Page.IsPostBack)
+            {
+                ModuleTypesDAO moduleTypesDAO = new ModuleTypesDAO();
+                IEnumerable<ModuleType> moduleTypes = moduleTypesDAO.SelectAll();
+
+                ddlTypes.DataSource = moduleTypes;
+                ddlTypes.DataBind();
+                // Insert default option
+                ddlTypes.Items.Insert(0, new ListItem("-", String.Empty));
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -31,6 +41,7 @@ namespace WebApplication1
                 bool isPrivate = chkboxPrivateModule.Checked;
                 string imageUrl = ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
                 int userId = User.Identity.GetUserId<int>();
+                int moduleType = Int32.Parse(ddlTypes.SelectedValue);
 
                 Module module = new Module()
                 {
@@ -41,7 +52,8 @@ namespace WebApplication1
                     DateCreated = DateTime.Now,
                     DateModified = DateTime.Now,
                     Owner = new User(userId),
-                    ModifiedBy = new User(userId)
+                    ModifiedBy = new User(userId),
+                    ModuleType = new ModuleType(moduleType)
                 };
 
                 ModulesDAO DP = new ModulesDAO();

@@ -10,14 +10,20 @@
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in module"></asp:TextBox>
                 
                 <ul>
-                    <li><a href="#">Videos</a></li>
-                    <li><a href="#">Hands-on Activities</a></li>
-                    <li><a href="#">Articles</a></li>
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Spaces</a></li>
-                    <li><a href="#">Websites</a></li>
+                    <asp:Repeater runat="server" ID="ResourceTypesRepeater">
+                        <HeaderTemplate>
+                            <li>
+                                <a href="?">All</a>
+                            </li>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li>
+                                <a href="?type=<%#Eval("Id")%>">
+                                    <%# Eval("Name") %>
+                                </a>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater> 
                 </ul>
 
                 <asp:LoginView runat="server" ID="AddResourceLV">
@@ -165,6 +171,8 @@
                                                 <%#Eval("title")%>
                                             </asp:HyperLink>
                                         </h4>
+                                        <span class="label" style="background-color: #428bca"><%#Eval("ResourceType.Name")%></span>
+                                        <br />
                                         <h5>By <asp:HyperLink runat="server" NavigateUrl="#"><%# Eval("Owner.Username") %></asp:HyperLink></h5>
                                     </div>
                                 </div>

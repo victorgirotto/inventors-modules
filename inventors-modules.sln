@@ -10,6 +10,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{16
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorsModules", "src\InventorsModules\InventorsModules.csproj", "{82C7F088-7674-4F3D-8499-8B34A3EC3117}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Changes", "Changes", "{50CAA897-5E11-42B7-BB2B-8348C88D18A5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Users\Victor\Desktop\001 - Create ModuleTypes.sql = ..\..\..\Users\Victor\Desktop\001 - Create ModuleTypes.sql
+		..\..\..\Users\Victor\Desktop\002 - Insert ModuleTypes.sql = ..\..\..\Users\Victor\Desktop\002 - Insert ModuleTypes.sql
+		..\..\..\Users\Victor\Desktop\003 - Alter Modules Add ModuleTypeId.sql = ..\..\..\Users\Victor\Desktop\003 - Alter Modules Add ModuleTypeId.sql
+		..\..\..\Users\Victor\Desktop\004 - Create ResourceTypes.sql = ..\..\..\Users\Victor\Desktop\004 - Create ResourceTypes.sql
+		..\..\..\Users\Victor\Desktop\005 - Insert ResourceTypes.sql = ..\..\..\Users\Victor\Desktop\005 - Insert ResourceTypes.sql
+		..\..\..\Users\Victor\Desktop\006 - Alter Resources.sql = ..\..\..\Users\Victor\Desktop\006 - Alter Resources.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,5 +33,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50CAA897-5E11-42B7-BB2B-8348C88D18A5} = {16B24E7A-68B1-4E97-86C2-DCE7A5ED8B2F}
 	EndGlobalSection
 EndGlobal

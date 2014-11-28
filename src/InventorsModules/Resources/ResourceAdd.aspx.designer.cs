@@ -31,6 +31,24 @@ namespace IdentityTest.Modules {
         protected global::System.Web.UI.WebControls.TextBox ResourceUrl;
         
         /// <summary>
+        /// lblResourceType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResourceType;
+        
+        /// <summary>
+        /// ddlTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypes;
+        
+        /// <summary>
         /// ResourceImage control.
         /// </summary>
         /// <remarks>
