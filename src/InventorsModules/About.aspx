@@ -5,13 +5,15 @@
     <div class="main-container">
         <h1>About Inventors' Workshops</h1>
 
-        <p class="inner-container">
-            With a team of engineers, scientists and educators, Inventors' Workshops provides curated information in different medias, 
-            access to spaces, activities and passion-driven communities to learners and change-makers who want to efficiently learn 
-            what they're passionate about and apply it to accomplish their dreams. Unlike just searching in Google for all resources 
-            you need, we centralize them into one concise environment that reduces the search overhead and connects the passion-driven 
-            community.
-        </p>
+        <div class="jumbotron">
+            <p class="lead">
+                With a team of engineers, scientists and educators, Inventors' Workshops provides curated information in different medias, 
+                access to spaces, activities and passion-driven communities to learners and change-makers who want to efficiently learn 
+                what they're passionate about and apply it to accomplish their dreams. Unlike just searching in Google for all resources 
+                you need, we centralize them into one concise environment that reduces the search overhead and connects the passion-driven 
+                community.
+            </p>
+        </div>
 
         <h3>What is IW?</h3>
 

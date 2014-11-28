@@ -11,6 +11,8 @@ $dark-text: black;
 $light-text: white;
 $featured-height: 300px;
 $border-radius: 6px;
+$shadow: 0 0px 3px rgba(0,0,0,0.1);
+$strong-shadow: 0 0 3px rgba(0,0,0,0.3);
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
@@ -37,6 +39,7 @@ textarea {
     border: none;
     border-radius: 0;
     margin-bottom: 0;
+    box-shadow: $shadow;
 
     .navbar-brand {
         color: white;
@@ -45,6 +48,7 @@ textarea {
             height: 60px;
             border: none;
             display: block;
+            box-shadow: none;
         }
 
         span {
@@ -130,7 +134,7 @@ p.spaced {
 }
 
 img {
-    border: solid 2px $neutral-color;
+    box-shadow: $strong-shadow;
 }
 
 h4 {
@@ -144,6 +148,7 @@ h4 {
 .main-container {
     background: white;
     padding: $padding;
+    box-shadow: $shadow;
 }
 
 .inner-container {
@@ -187,7 +192,12 @@ h4:first-child {
         position: relative;
         border: none;
         height: 40px;
+        box-shadow: none;
     }
+}
+
+.error {
+    color: #f24e4e;
 }
 
 .menu {
@@ -254,7 +264,7 @@ h4:first-child {
 
 .grid-item {
     text-align: center;
-    height: 230px;
+    height: 280px;
     margin-bottom: 20px; 
 
     .grid-image {
@@ -267,6 +277,10 @@ h4:first-child {
             height: 100%;
             background: url(../Images/az1.jpg);
         }
+    }
+
+    h4 {
+        margin-bottom: 0;
     }
 }
 
@@ -347,7 +361,5 @@ h4:first-child {
 }
 
 .jumbotron  {
-    /*background: url(../Images/asu.jpg) 0 -150px;
-    background-size: cover;*/
-
+    background: url(../Images/wavegrid.png) repeat;
 }

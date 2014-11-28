@@ -9,14 +9,20 @@
                 <asp:TextBox runat="server" TextMode="Search" placeholder="Search in modules"></asp:TextBox>
                     
                 <ul>
-                    <li><a href="#">Art</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Philosophy</a></li>
-                    <li><a href="#">Music</a></li>
-                    <li><a href="#">Mathematics</a></li>
-                    <li><a href="#">Languages</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Hacker-maker</a></li>
+                    <asp:Repeater runat="server" ID="ModuleTypesRepeater">
+                        <HeaderTemplate>
+                            <li>
+                                <a href="?">All</a>
+                            </li>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li>
+                                <a href="?type=<%#Eval("Id")%>">
+                                    <%#Eval("Name")%>
+                                </a>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
                 
                 <asp:LoginView runat="server">
@@ -48,10 +54,12 @@
                                             <%#Eval("title")%>
                                         </asp:HyperLink>
                                     </h4>
-                                    <h5>
+                                    <span class="label" style="background-color: #428bca"><%#Eval("ModuleType.Name")%></span>
+                                    <br />
+                                    <div>
                                         Added on <%# ((DateTime)Eval("DateCreated")).ToShortDateString() %><br />
                                         By <asp:HyperLink runat="server" NavigateUrl="#"><%#Eval("Owner.Username")%></asp:HyperLink>
-                                    </h5>
+                                    </div>
                                 </div>
                             </div>        
                         </ItemTemplate>

@@ -13,12 +13,14 @@ namespace WebApplication1
         public IEnumerable<Module> SelectModulesAll()
         {
             var lookup = new Dictionary<int, Module>();
-            return DapperUtil.SelectManyJoin<Module, User, Module>(
+            return DapperUtil.SelectManyJoin<Module, User, ModuleType, Module>(
                 @"SELECT * FROM Modules m
-                LEFT JOIN AspNetUsers u ON m.OwnerId = u.Id",
-                (module, user) =>
+                LEFT JOIN AspNetUsers u ON m.OwnerId = u.Id
+                LEFT Join ModuleTypes mt ON m.ModuleTypeId = mt.Id",
+                (module, user, moduleType) =>
                 {
                     module.Owner = user;
+                    module.ModuleType = moduleType;
                     return module;
                 }
             );
@@ -29,9 +31,9 @@ namespace WebApplication1
             int id = -1;
 
             string sql = @"
-                INSERT INTO Modules (Title, Description, DateCreated, DateModified, OwnerId, IsActive, IsPrivate, IsFeatured, ModifiedById, ImageUrl)
+                INSERT INTO Modules (Title, Description, DateCreated, DateModified, OwnerId, IsActive, IsPrivate, IsFeatured, ModifiedById, ImageUrl, ModuleTypeId)
                 OUTPUT Inserted.ID
-                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @IsActive, @IsPrivate, @IsFeatured, @ModifiedBy, @ImageUrl);";
+                VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @IsActive, @IsPrivate, @IsFeatured, @ModifiedBy, @ImageUrl, @ModuleType);";
 
             id = DapperUtil.ExecuteInsert(sql, new {
                 Title = module.Title,
@@ -43,7 +45,8 @@ namespace WebApplication1
                 IsActive = true,
                 IsPrivate = false,
                 IsFeatured = false,
-                ModifiedBy = module.ModifiedBy.Id
+                ModifiedBy = module.ModifiedBy.Id,
+                ModuleType = module.ModuleType.Id
             });
             
             return id;
@@ -64,6 +67,21 @@ namespace WebApplication1
                 },
                 new { id = id }
             );
+        }
+
+        public IEnumerable<Module> SelectModulesByType(ModuleType type)
+        {
+            var lookup = new Dictionary<int, Module>();
+            return DapperUtil.SelectManyJoin<Module, User, Module>(
+                @"SELECT * FROM Modules m
+                LEFT JOIN AspNetUsers u ON m.OwnerId = u.Id
+                WHERE ModuleTypeId = @ModuleTypeId",
+                (module, user) =>
+                {
+                    module.Owner = user;
+                    return module;
+                }
+            , new { ModuleTypeId = type.Id });
         }
     }
 }

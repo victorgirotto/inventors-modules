@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using IdentityTest.Modules;
+using IdentityTest.DAO;
 
 namespace WebApplication1.Pages.Modules
 {
@@ -21,8 +23,11 @@ namespace WebApplication1.Pages.Modules
                 bool converted = Int32.TryParse(idValue, out moduleId);
                 if (converted)
                 {
-                    ModulesDAO dp = new ModulesDAO();
-                    Module module = dp.SelectModuleById(moduleId);
+                    ModulesDAO modulesDAO = new ModulesDAO();
+                    ResourceTypesDAO resourceTypesDAO = new ResourceTypesDAO();
+                    ResourcesDAO resourcesDAO = new ResourcesDAO();
+
+                    Module module = modulesDAO.SelectModuleById(moduleId);
 
                     Page.Title = module.Title;
 
@@ -35,10 +40,21 @@ namespace WebApplication1.Pages.Modules
                         addResourceLink.NavigateUrl = String.Format(addResourceLink.NavigateUrl, moduleId);
 
                     // Loading resources
-                    ResourcesDAO resourcesDP = new ResourcesDAO();
-                    IEnumerable<Resource> resources = resourcesDP.SelectResourcesByModule(moduleId);
+                    string type = Request.Params["type"];
+                    int parsedType = 0;
+                    IEnumerable<Resource> resources;
+
+                    if(Int32.TryParse(type, out parsedType))
+                        resources = resourcesDAO.SelectResourcesByModuleAndType(moduleId, new ResourceType(parsedType));
+                    else
+                        resources = resourcesDAO.SelectResourcesByModule(moduleId);
+                    IEnumerable<ResourceType> resourceTypes = resourceTypesDAO.SelectAll();
+
                     MostRecentRepeater.DataSource = resources;
+                    ResourceTypesRepeater.DataSource = resourceTypes;
+
                     MostRecentRepeater.DataBind();
+                    ResourceTypesRepeater.DataBind();
                 }
                 else
                 {

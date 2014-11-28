@@ -17,8 +17,8 @@ namespace IdentityTest.Models
         public User ModifiedBy { get; set; }
         public int DifficultyLevel { get; set; }
         public bool IsActive { get; set; }
-        public int ResourceTypeFk { get; set; }
-        public int ModuleFk { get; set; }
+        public ResourceType ResourceType { get; set; }
+        public Module Module { get; set; }
         public bool IsFeatured { get; set; }
     }
 }

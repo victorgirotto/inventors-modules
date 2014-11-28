@@ -8,32 +8,31 @@ namespace IdentityTest.DataProviders
 {
     public class ResourcesDAO
     {
-        public int InsertResource(Resource module)
+        public int InsertResource(Resource resource)
         {
             int prKey = -1;
 
             string sql = @"
-                INSERT INTO Resources (Title, Description, DateCreated, DateModified, OwnerId, ModifiedById, IsActive, ResourceType, ModuleId, Url, IsFeatured, DifficultyLevel, ImageUrl)
+                INSERT INTO Resources (Title, Description, DateCreated, DateModified, OwnerId, ModifiedById, IsActive, ResourceTypeId, ModuleId, Url, IsFeatured, DifficultyLevel, ImageUrl)
                 OUTPUT Inserted.ID
                 VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @ModuleId, @Url, @IsFeatured, @DifficultyLevel, @ImageUrl);";
 
             prKey = DapperUtil.ExecuteInsert(sql, new
             {
-                Title = module.Title,
-                Description = module.Description,
+                Title = resource.Title,
+                Description = resource.Description,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
-                ImageUrl = module.ImageUrl,
-                Owner = module.Owner.Id,
-                ModifiedBy = module.ModifiedBy.Id,
+                ImageUrl = resource.ImageUrl,
+                Owner = resource.Owner.Id,
+                ModifiedBy = resource.ModifiedBy.Id,
                 IsActive = true,
-                ResourceType = 1,
-                ModuleId = module.ModuleFk,
-                Url = module.Url,
+                ResourceType = resource.ResourceType.Id,
+                ModuleId = resource.Module.Id,
+                Url = resource.Url,
                 IsFeatured = false,
-                DifficultyLevel = 1
+                DifficultyLevel = 1,
             });
-
 
             return prKey;
         }
@@ -54,13 +53,15 @@ namespace IdentityTest.DataProviders
 
         public IEnumerable<Resource> SelectResourcesByModule(int moduleId)
         {
-            return DapperUtil.SelectManyJoin<Resource, User, Resource>(
+            return DapperUtil.SelectManyJoin<Resource, User, ResourceType, Resource>(
                 @"SELECT * FROM Resources r
-                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id
+                LEFT JOIN AspNetUsers u ON r.OwnerId = u.Id
+                LEFT JOIN ResourceTypes rt on r.ResourceTypeId = rt.Id
                 WHERE r.ModuleId = @Id",
-                (resource, user) =>
+                (resource, user, resourceType) =>
                 {
                     resource.Owner = user;
+                    resource.ResourceType = resourceType;
                     return resource;
                 },
                 new { 
@@ -68,5 +69,26 @@ namespace IdentityTest.DataProviders
                 }
             );
         }
+
+        public IEnumerable<Resource> SelectResourcesByModuleAndType(int moduleId, ResourceType type)
+        {
+            return DapperUtil.SelectManyJoin<Resource, User, ResourceType, Resource>(
+                @"SELECT * FROM Resources r
+                LEFT JOIN AspNetUsers u ON r.OwnerId = u.Id
+                INNER JOIN ResourceTypes rt on r.ResourceTypeId = rt.Id
+                WHERE r.ModuleId = @Id AND r.ResourceTypeId = @Type",
+                (resource, user, resourceType) =>
+                {
+                    resource.Owner = user;
+                    resource.ResourceType = resourceType;
+                    return resource;
+                },
+                new
+                {
+                    Id = moduleId,
+                    Type = type.Id
+                }
+            );
+        } 
     }
 }
