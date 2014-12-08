@@ -30,6 +30,10 @@ namespace IdentityTest.Resources
                     ResourceImage.ImageUrl = ImageHelper.GetImageThumbUrl(resource.ImageUrl);
                     CreatedBy.Text = resource.Owner.UserName;
                     DateCreated.Text = resource.DateCreated.ToShortDateString();
+                    uc_DifficultyLevel.Text = resource.DifficultyLevel.ToString();
+                    uc_ResourceType.Text = resource.ResourceType != null ? resource.ResourceType.Name : "Undefined type";
+
+                    Page.Title = resource.Title;
                 }
                 else
                 {

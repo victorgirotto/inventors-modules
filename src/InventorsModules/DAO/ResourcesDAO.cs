@@ -31,7 +31,7 @@ namespace IdentityTest.DataProviders
                 ModuleId = resource.Module.Id,
                 Url = resource.Url,
                 IsFeatured = false,
-                DifficultyLevel = 1,
+                DifficultyLevel = resource.DifficultyLevel,
             });
 
             return prKey;
@@ -39,12 +39,14 @@ namespace IdentityTest.DataProviders
 
         public Resource SelectResourceById(int id)
         {
-            return DapperUtil.SelectOneJoin<Resource, User, Resource>(
+            return DapperUtil.SelectOneJoin<Resource, User, ResourceType, Resource>(
                 @"SELECT * FROM Resources r
                 INNER JOIN AspNetUsers u ON r.OwnerId = u.Id
+                INNER JOIN ResourceTypes rt on r.ResourceTypeId = rt.Id
                 WHERE r.Id = @Id", 
-                (resource, user) => {
+                (resource, user, resourceType) => {
                     resource.Owner = user;
+                    resource.ResourceType = resourceType;
                     return resource;
                 },
                 new { Id = id }
@@ -55,8 +57,8 @@ namespace IdentityTest.DataProviders
         {
             return DapperUtil.SelectManyJoin<Resource, User, ResourceType, Resource>(
                 @"SELECT * FROM Resources r
-                LEFT JOIN AspNetUsers u ON r.OwnerId = u.Id
-                LEFT JOIN ResourceTypes rt on r.ResourceTypeId = rt.Id
+                INNER JOIN AspNetUsers u ON r.OwnerId = u.Id
+                INNER JOIN ResourceTypes rt on r.ResourceTypeId = rt.Id
                 WHERE r.ModuleId = @Id",
                 (resource, user, resourceType) =>
                 {

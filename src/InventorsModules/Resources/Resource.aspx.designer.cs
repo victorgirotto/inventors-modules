@@ -49,6 +49,15 @@ namespace IdentityTest.Resources {
         protected global::System.Web.UI.WebControls.Label CreatedBy;
         
         /// <summary>
+        /// uc_ResourceType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uc_ResourceType;
+        
+        /// <summary>
         /// ResourceDescription control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace IdentityTest.Resources {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ResourceDescription;
+        
+        /// <summary>
+        /// uc_DifficultyLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uc_DifficultyLevel;
         
         /// <summary>
         /// ResourceLink control.

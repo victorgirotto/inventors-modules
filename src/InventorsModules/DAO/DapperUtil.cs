@@ -49,6 +49,14 @@ namespace IdentityTest.DataProviders
             return default(RT);
         }
 
+        public static RT SelectOneJoin<T1, T2, T3, RT>(string query, Func<T1, T2, T3, RT> mapping, object param = null)
+        {
+            IEnumerable<RT> results = SelectManyJoin<T1, T2, T3, RT>(query, mapping, param);
+            if (results != null)
+                return results.First();
+            return default(RT);
+        }
+
         public static T SelectOne<T>(string query, object param = null)
         {
             string connString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;

@@ -53,7 +53,8 @@ namespace IdentityTest.Modules
                             Module = new Module(moduleId),
                             Owner = new User(userId),
                             ModifiedBy = new User(userId),
-                            ResourceType = new ResourceType(Int32.Parse(ddlTypes.SelectedValue))
+                            ResourceType = new ResourceType(Int32.Parse(ddlTypes.SelectedValue)),
+                            DifficultyLevel = Int32.Parse(rblDifficulty.SelectedValue)
                         };
 
                         ResourcesDAO provider = new ResourcesDAO();

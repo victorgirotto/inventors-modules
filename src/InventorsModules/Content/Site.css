@@ -53,7 +53,10 @@ textarea {
   list-style-type: none;
   padding-left: 0; }
   .no-bullets li {
-    margin-bottom: 15px; }
+    margin-bottom: 25px; }
+
+.form-list p {
+  color: #888; }
 
 input[type=submit], .button {
   background: #CCC;
@@ -73,9 +76,10 @@ input[type=checkbox] {
   margin-right: 10px; }
 
 .spaced > * {
-  margin-bottom: 20px; }
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
-p.spaced {
+.spaced {
   padding: 20px 0; }
 
 .not-spaced {
@@ -171,6 +175,14 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
       background: url(../Images/az1.jpg); }
   .grid-item h4 {
     margin-bottom: 0; }
+
+.horizontal {
+  display: inline-block;
+  list-style: none;
+  margin-right: 20px; }
+  .horizontal li {
+    display: inline;
+    margin-right: 10px; }
 
 .news-flash {
   height: 300px; }
