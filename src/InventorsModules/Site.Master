@@ -1,14 +1,14 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="iw">
 <head runat="server">
     <meta charset="utf-8" />
     <title><%: Page.Title %> - Inventors' Workshops</title>
     <asp:PlaceHolder runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
-    <webopt:BundleReference runat="server" Path="~/Content/bootstrap" /> 
+    <webopt:BundleReference runat="server" Path="~/Content/bootstrap.css" /> 
     <webopt:BundleReference runat="server" Path="~/Content/css" /> 
     <link href="~/favicon.ico?v=1" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
@@ -84,6 +84,7 @@
                     <%--Site Scripts--%>
                     <asp:ScriptReference Path="~/Scripts/jquery-1.10.2.min.js" />
                     <asp:ScriptReference Path="~/Scripts/bootstrap.js" />
+                    <asp:ScriptReference Path="~/Scripts/angular.min.js" />
 
                 </Scripts>
             </asp:ScriptManager>

@@ -20,5 +20,6 @@ namespace IdentityTest.Models
         public ResourceType ResourceType { get; set; }
         public Module Module { get; set; }
         public bool IsFeatured { get; set; }
+        public IEnumerable<ResourceMetadata> Metadata { get; set; }
     }
 }

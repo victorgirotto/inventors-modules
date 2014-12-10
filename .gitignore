@@ -191,4 +191,4 @@ API.settings
 API.designer.cs
 
 # Ignore image upload directory
-
+/src/InventorsModules/Images/Uploads

@@ -31,6 +31,25 @@ textarea {
     display: block;
 }
 
+table {
+
+    thead {
+        font-weight: bolder;
+    }
+
+    td {
+        padding: 5px;
+        border: solid 1px #EEE;
+        vertical-align: middle;
+
+        input[type=text]{
+            width: 100%;
+        }
+    }
+
+    margin-bottom: $padding;
+}
+
 .navbar-default {
     background: $iw-color;
     background-image: url("../Images/border.png");
@@ -91,7 +110,13 @@ textarea {
     padding-left: 0;
 
     li {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
+    }
+}
+
+.form-list {
+    p {
+        color: #888;
     }
 }
 
@@ -122,10 +147,11 @@ input[type=checkbox]{
 }
 
 .spaced > * {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-p.spaced {
+.spaced {
     padding: $padding 0;
 }
 
@@ -284,6 +310,17 @@ h4:first-child {
     }
 }
 
+.horizontal {
+    display: inline-block;
+    list-style: none;
+    margin-right: 20px;
+
+    li {
+        display: inline;
+        margin-right: 10px;
+    }
+}
+
 .news-flash {
     height: $featured-height;
     
@@ -362,4 +399,9 @@ h4:first-child {
 
 .jumbotron  {
     background: url(../Images/wavegrid.png) repeat;
+}
+
+.more-information {
+    color: #888;
+    font-size: 0.9em;
 }

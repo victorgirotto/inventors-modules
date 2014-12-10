@@ -31,6 +31,15 @@ namespace IdentityTest.Resources {
         protected global::System.Web.UI.WebControls.Label ResourceTitle;
         
         /// <summary>
+        /// uc_ResourceType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uc_ResourceType;
+        
+        /// <summary>
         /// DateCreated control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace IdentityTest.Resources {
         protected global::System.Web.UI.WebControls.Label CreatedBy;
         
         /// <summary>
+        /// ResourceLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ResourceLink;
+        
+        /// <summary>
         /// ResourceDescription control.
         /// </summary>
         /// <remarks>
@@ -58,12 +76,21 @@ namespace IdentityTest.Resources {
         protected global::System.Web.UI.WebControls.Label ResourceDescription;
         
         /// <summary>
-        /// ResourceLink control.
+        /// uc_DifficultyLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ResourceLink;
+        protected global::System.Web.UI.WebControls.Label uc_DifficultyLevel;
+        
+        /// <summary>
+        /// uc_MetadataRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uc_MetadataRepeater;
     }
 }

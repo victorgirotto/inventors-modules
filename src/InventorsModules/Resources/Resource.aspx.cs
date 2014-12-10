@@ -1,5 +1,6 @@
 ﻿using IdentityTest.DataProviders;
 using IdentityTest.Helpers;
+using IdentityTest.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,8 @@ namespace IdentityTest.Resources
                 bool converted = Int32.TryParse(idValue, out resourceId);
                 if (converted)
                 {
-                    ResourcesDAO resourcesDp = new ResourcesDAO();
-                    IdentityTest.Models.Resource resource = resourcesDp.SelectResourceById(resourceId);
+                    ResourcesDAO resourcesDAO = new ResourcesDAO();
+                    IdentityTest.Models.Resource resource = resourcesDAO.SelectResourceById(resourceId);
 
                     ResourceTitle.Text = resource.Title;
                     ResourceDescription.Text = resource.Description;
@@ -30,6 +31,15 @@ namespace IdentityTest.Resources
                     ResourceImage.ImageUrl = ImageHelper.GetImageThumbUrl(resource.ImageUrl);
                     CreatedBy.Text = resource.Owner.UserName;
                     DateCreated.Text = resource.DateCreated.ToShortDateString();
+                    uc_DifficultyLevel.Text = resource.DifficultyLevel.ToString();
+                    uc_ResourceType.Text = resource.ResourceType != null ? resource.ResourceType.Name : "Undefined type";
+
+                    // Metadata
+                    IEnumerable<ResourceMetadata> metadata = resourcesDAO.SelectResourceMetadata(resourceId);
+                    uc_MetadataRepeater.DataSource = metadata;
+                    uc_MetadataRepeater.DataBind();
+
+                    Page.Title = resource.Title;
                 }
                 else
                 {
