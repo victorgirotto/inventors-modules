@@ -50,7 +50,7 @@
                                         <asp:Image runat="server" ImageUrl='<%# IdentityTest.Helpers.ImageHelper.GetImageThumbUrl(Eval("ImageUrl").ToString()) %>' />
                                     </asp:HyperLink>
                                     <h4>
-                                        <asp:HyperLink runat="server" NavigateUrl="#">
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
                                             <%#Eval("title")%>
                                         </asp:HyperLink>
                                     </h4>
