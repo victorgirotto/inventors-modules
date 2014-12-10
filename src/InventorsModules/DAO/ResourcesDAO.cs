@@ -10,14 +10,14 @@ namespace IdentityTest.DataProviders
     {
         public int InsertResource(Resource resource)
         {
-            int prKey = -1;
+            int resourceId = -1;
 
             string sql = @"
                 INSERT INTO Resources (Title, Description, DateCreated, DateModified, OwnerId, ModifiedById, IsActive, ResourceTypeId, ModuleId, Url, IsFeatured, DifficultyLevel, ImageUrl)
                 OUTPUT Inserted.ID
                 VALUES (@Title, @Description, @DateCreated, @DateModified, @Owner, @ModifiedBy, @IsActive, @ResourceType, @ModuleId, @Url, @IsFeatured, @DifficultyLevel, @ImageUrl);";
-
-            prKey = DapperUtil.ExecuteInsert(sql, new
+            
+            resourceId = DapperUtil.ExecuteInsert(sql, new
             {
                 Title = resource.Title,
                 Description = resource.Description,
@@ -34,7 +34,16 @@ namespace IdentityTest.DataProviders
                 DifficultyLevel = resource.DifficultyLevel,
             });
 
-            return prKey;
+            List<ResourceMetadata> metadata = resource.Metadata.Select(c => { c.ResourceId = resourceId; return c; }).ToList();
+
+            string metadataSql = @"
+                INSERT INTO ResourceMetadata (ResourceId, DataType, Name, Value)
+                VALUES (@ResourceId, @DataType, @Name, @Value)";
+
+            // Insert resource metadata
+            DapperUtil.ExecuteQuery(metadataSql, metadata);
+
+            return resourceId;
         }
 
         public Resource SelectResourceById(int id)
@@ -91,6 +100,12 @@ namespace IdentityTest.DataProviders
                     Type = type.Id
                 }
             );
-        } 
+        }
+
+        public IEnumerable<ResourceMetadata> SelectResourceMetadata(int resourceId)
+        {
+            string sql = @"SELECT * FROM ResourceMetadata WHERE ResourceId = @Id";
+            return DapperUtil.SelectMany<ResourceMetadata>(sql, new { Id = resourceId });
+        }
     }
 }

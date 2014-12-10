@@ -9,20 +9,44 @@
             </div>
         </div>
         <div class="col-md-9 main-container">
-            <h1><asp:Label runat="server" ID="ResourceTitle"></asp:Label></h1>
+            <h1><asp:Label runat="server" ID="ResourceTitle"></asp:Label> </h1>
             
-            <h3 class="subtitle">Created on <asp:Label runat="server" ID="DateCreated"></asp:Label> by <asp:Label runat="server" ID="CreatedBy"></asp:Label></h3>
+            <h3 class="subtitle">
+                <span class="label label-default"><asp:Label runat="server" ID="uc_ResourceType"></asp:Label></span> 
+                Created on <asp:Label runat="server" ID="DateCreated"></asp:Label> by <asp:Label runat="server" ID="CreatedBy"></asp:Label>
 
-            <h3 class=""><span class="label label-default"><asp:Label runat="server" ID="uc_ResourceType"></asp:Label></span></h3>
+            </h3>
 
             <div class="spaced">
+                <asp:HyperLink runat="server" ID="ResourceLink" CssClass="btn btn-primary btn-lg" Target="_blank">Visit URL</asp:HyperLink>
+            </div>
+
+            <div>
                 <p><asp:Label runat="server" ID="ResourceDescription"></asp:Label></p>
 
                 <p><strong>Difficulty level: </strong> <asp:Label runat="server" ID="uc_DifficultyLevel">-</asp:Label> / 5</p> 
             </div>
-            <div>
-                <asp:HyperLink runat="server" ID="ResourceLink" CssClass="btn btn-primary btn-lg" Target="_blank">Visit URL</asp:HyperLink>
-            </div>
+
+            <h3>Metadata</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <asp:Repeater runat="server" ID="uc_MetadataRepeater">
+                        <ItemTemplate>
+                            <tr>
+                                <td><%# Eval("Name") %></td>
+                                <td><%# Eval("Value") %></td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
+            </table>
+            
         </div>
     </div>
     

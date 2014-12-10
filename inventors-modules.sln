@@ -5,6 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{16B24E7A-68B1-4E97-86C2-DCE7A5ED8B2F}"
 	ProjectSection(SolutionItems) = preProject
+		001 - Create ResourceMetadata table.sql = 001 - Create ResourceMetadata table.sql
 		database\DBSetup.sql = database\DBSetup.sql
 	EndProjectSection
 EndProject

@@ -67,6 +67,24 @@ namespace IdentityTest.Modules {
         protected global::System.Web.UI.WebControls.TextBox ResourceDescription;
         
         /// <summary>
+        /// uc_MetadataValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator uc_MetadataValidator;
+        
+        /// <summary>
+        /// uc_Metadata control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uc_Metadata;
+        
+        /// <summary>
         /// CreateResource control.
         /// </summary>
         /// <remarks>

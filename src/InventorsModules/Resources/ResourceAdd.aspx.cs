@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using IdentityTest.DAO;
+using System.Globalization;
 
 namespace IdentityTest.Modules
 {
@@ -44,6 +45,8 @@ namespace IdentityTest.Modules
                         string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
                         int userId = User.Identity.GetUserId<int>();
 
+                        IEnumerable<ResourceMetadata> metadata = JsonHelper.DeserializeJson<IEnumerable<ResourceMetadata>>(uc_Metadata.Text);
+
                         Resource resource = new Resource()
                         {
                             Title = ResourceTitle.Text,
@@ -54,14 +57,15 @@ namespace IdentityTest.Modules
                             Owner = new User(userId),
                             ModifiedBy = new User(userId),
                             ResourceType = new ResourceType(Int32.Parse(ddlTypes.SelectedValue)),
-                            DifficultyLevel = Int32.Parse(rblDifficulty.SelectedValue)
+                            DifficultyLevel = Int32.Parse(rblDifficulty.SelectedValue),
+                            Metadata = metadata
                         };
 
-                        ResourcesDAO provider = new ResourcesDAO();
-                        int prKey = provider.InsertResource(resource);
+                        ResourcesDAO resourceDAO = new ResourcesDAO();
+                        int resourceId = resourceDAO.InsertResource(resource);
 
                         // Redirect to resource page
-                        Response.Redirect("~/Resources/" + prKey);
+                        Response.Redirect("~/Resources/" + resourceId);
                     }
                     else
                     {
@@ -72,6 +76,49 @@ namespace IdentityTest.Modules
                 {
                     Response.Redirect("~/Modules/Modules.aspx");
                 }
+            }
+        }
+
+        protected void uc_MetadataValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string json = args.Value;
+            IEnumerable<ResourceMetadata> metadata = JsonHelper.DeserializeJson<IEnumerable<ResourceMetadata>>(json);
+
+            foreach (ResourceMetadata rm in metadata)
+            {
+                if (String.IsNullOrEmpty(rm.Name) || 
+                    String.IsNullOrEmpty(rm.Value) || 
+                    rm.Name.Length > 50 || 
+                    rm.Value.Length > 50)
+                {
+                    args.IsValid = false;
+                }
+                else
+                {
+                    switch (rm.DataType)
+                    {
+                        case "text":
+                            // No validation for text, since we already know that it's not empty and its length is < 50
+                            break;
+                        case "date":
+                            DateTime dt = new DateTime();
+                            args.IsValid = DateTime.TryParseExact(rm.Value, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out dt);
+                            break;
+                        case "integer":
+                            int i = 0;
+                            args.IsValid = Int32.TryParse(rm.Value, out i);
+                            break;
+                        case "real":
+                            double f = 0;
+                            args.IsValid = Double.TryParse(rm.Value, out f);
+                            break;
+                        default:
+                            args.IsValid = false;
+                            break;
+                    }
+                }
+                if (!args.IsValid)
+                    break;
             }
         }
     }
