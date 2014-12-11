@@ -53,6 +53,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -189,6 +191,7 @@
     <Content Include="Images\success.png" />
     <Content Include="Images\warning.png" />
     <Content Include="Images\wavegrid.png" />
+    <Content Include="Resources\FindResources.aspx" />
     <Content Include="Resources\ResourceAdd.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -198,6 +201,8 @@
     <Content Include="ConnectionStrings.example.config" />
     <Content Include="ConnectionStrings.private.config" />
     <Content Include="Content\Site.scss" />
+    <Content Include="AppSettings.example.config" />
+    <Content Include="AppSettings.private.config" />
     <None Include="Properties\PublishProfiles\inventorsworkshops.pubxml" />
     <None Include="Properties\API.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -374,11 +379,14 @@
     <Compile Include="DAO\ResourcesDAO.cs" />
     <Compile Include="DAO\ModuleTypesDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="External\BingSearchContainer.cs" />
+    <Compile Include="Helpers\ContextualSearchHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Models\DBModel.cs" />
     <Compile Include="Models\ResourceMetadata.cs" />
     <Compile Include="Models\ResourceType.cs" />
     <Compile Include="Models\ModuleType.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -394,6 +402,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Module.cs" />
     <Compile Include="Models\Resource.cs" />
+    <Compile Include="Resources\FindResources.aspx.cs">
+      <DependentUpon>FindResources.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\FindResources.aspx.designer.cs">
+      <DependentUpon>FindResources.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ResourceAdd.aspx.cs">
       <DependentUpon>ResourceAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,6 +502,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
