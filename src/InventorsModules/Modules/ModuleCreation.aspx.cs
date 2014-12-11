@@ -19,6 +19,9 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                Response.Redirect("~/Account/Login");
+
             if (!Page.IsPostBack)
             {
                 ModuleTypesDAO moduleTypesDAO = new ModuleTypesDAO();
