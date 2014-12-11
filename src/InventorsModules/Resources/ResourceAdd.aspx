@@ -3,8 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div ng-controller="addResourceController">
-        
-
         <div class="row">
             <div class="col-md-3 inner-container">
                 <p>

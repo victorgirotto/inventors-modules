@@ -26,6 +26,12 @@
                     </asp:Repeater> 
                 </ul>
 
+                <h5>
+                    <asp:HyperLink runat="server" ID="uc_FindResourcesLink" NavigateUrl="~/Resources/{0}/FindResources" CssClass="btn btn-default">
+                        Find Resources
+                    </asp:HyperLink>
+                </h5>
+
                 <asp:LoginView runat="server" ID="AddResourceLV">
                     <LoggedInTemplate>
                         <h5>

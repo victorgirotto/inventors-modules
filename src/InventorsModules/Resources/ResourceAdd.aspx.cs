@@ -17,6 +17,9 @@ namespace IdentityTest.Modules
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
+                Response.Redirect("~/Account/Login");
+
             if (!Page.IsPostBack)
             {
                 ResourceTypesDAO resourceTypeDAO = new ResourceTypesDAO();
@@ -27,6 +30,10 @@ namespace IdentityTest.Modules
                 // Insert default option
                 ddlTypes.Items.Insert(0, new ListItem("-", String.Empty));
             }
+
+            ResourceTitle.Text = Request.QueryString["title"];
+            ResourceUrl.Text = Request.QueryString["url"];
+            ResourceDescription.Text = Request.QueryString["description"];
         }
 
         protected void CreateResource_Click(object sender, EventArgs e)

@@ -21,9 +21,15 @@ table {
   table td {
     padding: 5px;
     border: solid 1px #EEE;
-    vertical-align: middle; }
+    vertical-align: middle !important; }
     table td input[type=text] {
       width: 100%; }
+  table .small {
+    width: 30px;
+    text-align: center; }
+
+.full-width-input input[type=text] {
+  width: 100%; }
 
 .navbar-default {
   background: #268674;
@@ -251,5 +257,9 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child {
 .more-information {
   color: #888;
   font-size: 0.9em; }
+
+/* Overide other styles */
+.form-control {
+  width: auto; }
 
 /*# sourceMappingURL=../../../../../../Program Files (x86)/Microsoft Visual Studio 12.0/Common7/IDE/Site.css.map */

@@ -34,10 +34,11 @@ namespace WebApplication1.Pages.Modules
                     ModuleTitleLabel.Text = module.Title;
                     ModuleDescriptionLabel.Text = module.Description;
 
-                    // Add module ID to add resources link if logged in
+                    // Formatting links that need the module ID
                     HyperLink addResourceLink = (HyperLink)AddResourceLV.FindControl("AddResourceLink");
                     if(addResourceLink != null)
                         addResourceLink.NavigateUrl = String.Format(addResourceLink.NavigateUrl, moduleId);
+                    uc_FindResourcesLink.NavigateUrl = String.Format(uc_FindResourcesLink.NavigateUrl, moduleId);
 
                     // Loading resources
                     string type = Request.Params["type"];
