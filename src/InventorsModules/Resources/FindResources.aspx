@@ -57,7 +57,8 @@
                                     <asp:HyperLink runat="server"
                                         class="btn btn-default"
                                         NavigateUrl='<%# 
-                                            "~/Resources/ResourceAdd.aspx?title=" + Eval("Title") +
+                                            "~/Resources/" + Page.RouteData.Values["id"] +
+                                            "/ResourceAdd?title=" + Eval("Title") +
                                             "&description=" + Eval("Description") + 
                                             "&url=" + Eval("Url")
                                         %>' 
