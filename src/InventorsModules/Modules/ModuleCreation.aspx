@@ -6,7 +6,7 @@
         
         <ul class="no-bullets">
             <li>
-                <asp:Label ID="lblTitle" runat="server" Text="Title: "></asp:Label>
+                <asp:Label ID="lblTitle" runat="server" Text="Title" AssociatedControlID="txtTitle"></asp:Label><br />
                 <asp:TextBox ID="txtTitle" runat="server" Width="250px"></asp:TextBox>
                 <br />
                 <asp:RequiredFieldValidator runat="server" 
@@ -21,7 +21,7 @@
                     CssClass="error"/>
             </li>
             <li>
-                <asp:Label ID="lblModuleType" runat="server" Text="Module type"></asp:Label><br />
+                <asp:Label ID="lblModuleType" runat="server" Text="Module type" AssociatedControlID="ddlTypes"></asp:Label><br />
                 <asp:DropDownList runat="server" 
                     ID="ddlTypes"
                     DataTextField="Name"
@@ -34,6 +34,7 @@
                     CssClass="error"/>
             </li>
             <li>
+                <%--
                 <asp:Label ID="lblImgUrl" runat="server" Text="Upload module image: "></asp:Label>
                 <asp:FileUpload runat="server" ID="ModuleImage" />
                 <asp:RequiredFieldValidator runat="server" 
@@ -41,9 +42,23 @@
                     ErrorMessage="The image upload is mandatory."
                     Display="Dynamic"
                     CssClass="error" />
+                --%>
+                <asp:Label runat="server" AssociatedControlID="ResourceImageUrl">Image URL</asp:Label><br />
+                <asp:TextBox runat="server" ID="ResourceImageUrl" Columns="60"></asp:TextBox>
+                <br />
+                <asp:RequiredFieldValidator runat="server" 
+                    ControlToValidate="ResourceImageUrl"
+                    ErrorMessage="The URL field is mandatory."
+                    Display="Dynamic"
+                    CssClass="error" />
+                <asp:RegularExpressionValidator runat="server"
+                    ControlToValidate="ResourceImageUrl" 
+                    ValidationExpression="^[\s\S]{0,2000}$"
+                    ErrorMessage="The max length of the URL is 2000 characters."
+                    CssClass="error"/>
             </li>
             <li>
-                <asp:Label ID="lblDescription" runat="server" Text="Description: "></asp:Label>
+                <asp:Label ID="lblDescription" runat="server" Text="Description" AssociatedControlID="txtDescription"></asp:Label>
                 <asp:TextBox ID="txtDescription" runat="server" Width="300px" TextMode="MultiLine" Columns="60" Rows="10"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" 
                     ControlToValidate="txtDescription"

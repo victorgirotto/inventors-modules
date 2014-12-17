@@ -72,6 +72,20 @@
                         Expert
                     </li>
                     <li>
+                        <asp:Label runat="server" AssociatedControlID="ResourceImageUrl">Image URL</asp:Label><br />
+                        <asp:TextBox runat="server" ID="ResourceImageUrl" Columns="60"></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator runat="server" 
+                            ControlToValidate="ResourceImageUrl"
+                            ErrorMessage="The Image URL field is mandatory."
+                            Display="Dynamic"
+                            CssClass="error" />
+                        <asp:RegularExpressionValidator runat="server"
+                            ControlToValidate="ResourceImageUrl" 
+                            ValidationExpression="^[\s\S]{0,2000}$"
+                            ErrorMessage="The max length of the URL is 2000 characters."
+                            CssClass="error"/>
+                        <%--
                         <asp:Label runat="server" AssociatedControlID="ResourceImage">Upload resource image:</asp:Label>
                         <asp:FileUpload ID="ResourceImage" runat="server" />
                         <asp:RequiredFieldValidator runat="server" 
@@ -79,6 +93,7 @@
                             ErrorMessage="The image upload is mandatory."
                             Display="Dynamic"
                             CssClass="error" />
+                        --%>
                     </li>
                     <li>
                         <asp:Label runat="server" AssociatedControlID="ResourceDescription">Description</asp:Label>

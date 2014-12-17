@@ -49,22 +49,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.DropDownList ddlTypes;
         
         /// <summary>
-        /// lblImgUrl control.
+        /// ResourceImageUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImgUrl;
-        
-        /// <summary>
-        /// ModuleImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ModuleImage;
+        protected global::System.Web.UI.WebControls.TextBox ResourceImageUrl;
         
         /// <summary>
         /// lblDescription control.

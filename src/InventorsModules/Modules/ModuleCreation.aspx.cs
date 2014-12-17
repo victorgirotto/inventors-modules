@@ -42,7 +42,7 @@ namespace WebApplication1
                 string title = txtTitle.Text.Trim();
                 string description = txtDescription.Text.Trim();
                 bool isPrivate = chkboxPrivateModule.Checked;
-                string imageUrl = ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
+                string imageUrl = ResourceImageUrl.Text; //ImageHelper.HandleUpload(ModuleImage.PostedFile, path);
                 int userId = User.Identity.GetUserId<int>();
                 int moduleType = Int32.Parse(ddlTypes.SelectedValue);
 
