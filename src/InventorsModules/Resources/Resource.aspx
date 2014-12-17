@@ -5,7 +5,7 @@
      <div class="row">
         <div class="col-md-3 inner-container centralized">
             <div style="background: white; padding: 0; display: inline-block">
-                <asp:Image runat="server" ID="ResourceImage" />
+                <asp:Image runat="server" ID="ResourceImage" Width="190"  />
             </div>
         </div>
         <div class="col-md-9 main-container">

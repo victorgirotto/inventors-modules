@@ -106,6 +106,9 @@ namespace IdentityTest.Helpers
 
         public static string GetImageThumbUrl(string imageName)
         {
+            if (imageName.StartsWith("http"))
+                return imageName;
+            // Deal with locally hosted images
             string imageNameNoExt = Path.GetFileNameWithoutExtension(imageName);
             string fileExtension = Path.GetExtension(imageName).ToLower();
             return GetImageUrl(imageNameNoExt + m_thumbPostfix + fileExtension);

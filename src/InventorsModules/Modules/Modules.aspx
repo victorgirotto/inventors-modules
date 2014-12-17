@@ -47,7 +47,7 @@
                             <div class="col-md-3">
                                 <div class="grid-item">
                                     <asp:HyperLink runat="server" CssClass="grid-image" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>
-                                        <asp:Image runat="server" ImageUrl='<%# IdentityTest.Helpers.ImageHelper.GetImageThumbUrl(Eval("ImageUrl").ToString()) %>' />
+                                        <asp:Image runat="server" Width="190" Height="150" ImageUrl='<%# IdentityTest.Helpers.ImageHelper.GetImageThumbUrl(Eval("ImageUrl").ToString()) %>' />
                                     </asp:HyperLink>
                                     <h4>
                                         <asp:HyperLink runat="server" NavigateUrl='<%# String.Format("~/Modules/{0}", Eval("Id")) %>'>

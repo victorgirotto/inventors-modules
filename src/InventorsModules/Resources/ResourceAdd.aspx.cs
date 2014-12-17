@@ -29,11 +29,12 @@ namespace IdentityTest.Modules
                 ddlTypes.DataBind();
                 // Insert default option
                 ddlTypes.Items.Insert(0, new ListItem("-", String.Empty));
-            }
 
-            ResourceTitle.Text = Request.QueryString["title"];
-            ResourceUrl.Text = Request.QueryString["url"];
-            ResourceDescription.Text = Request.QueryString["description"];
+                ResourceTitle.Text = Request.QueryString["title"];
+                ResourceUrl.Text = Request.QueryString["url"];
+                ResourceDescription.Text = Request.QueryString["description"];
+            }
+            
         }
 
         protected void CreateResource_Click(object sender, EventArgs e)
@@ -49,7 +50,7 @@ namespace IdentityTest.Modules
                     bool converted = Int32.TryParse(idValue, out moduleId);
                     if (converted)
                     {
-                        string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path);
+                        //string imageUrl = ImageHelper.HandleUpload(ResourceImage.PostedFile, path); // Image URL for file upload
                         int userId = User.Identity.GetUserId<int>();
 
                         IEnumerable<ResourceMetadata> metadata = JsonHelper.DeserializeJson<IEnumerable<ResourceMetadata>>(uc_Metadata.Text);
@@ -58,7 +59,7 @@ namespace IdentityTest.Modules
                         {
                             Title = ResourceTitle.Text,
                             Url = ResourceUrl.Text,
-                            ImageUrl = imageUrl,
+                            ImageUrl = ResourceImageUrl.Text,
                             Description = ResourceDescription.Text,
                             Module = new Module(moduleId),
                             Owner = new User(userId),
