@@ -5,7 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;    
-using System.Text.RegularExpressions; 
+using System.Text.RegularExpressions;
+using System.Web.Services.Description;
+using IdentityTest.Helpers;
+using System.Configuration;
+using System.Net;
+using System.Collections.Specialized; 
 
 namespace WebApplication1.Pages
 {
@@ -13,57 +18,50 @@ namespace WebApplication1.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.IsPostBack)
+            {
+                uc_FormControls.Visible = false;
+                uc_SuccessMessage.Visible = true;
+            }
         }
 
         protected void ContactSubmission(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Cont_FirstName.Text.Trim()) || !String.IsNullOrEmpty(Cont_LastName.Text.Trim())
-                || !String.IsNullOrEmpty(ContactInfo.Text.Trim()) || !String.IsNullOrEmpty(Comments.Text.Trim()))
+            string captcha = Request.Params["g-recaptcha-response"];
+            bool isUserVerified = CaptchaHelper.VerifyUser(ConfigurationManager.AppSettings["RECAPTCHA_SECRET"], captcha);
+
+            uc_CaptchaError.Visible = !isUserVerified;
+            
+            if (Page.IsValid && isUserVerified)
             {
-                //basic check if there is an @ in the email's textbox
-                //maybe later for multiple @ that causes error
-                try
-                {
-                    //Checks if input email is regular expression
-                    if (Regex.IsMatch(ContactInfo.Text.Trim(), @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"))
-                    {
-                        //instantiate a new email message
-                        MailMessage email = new MailMessage();
+                //instantiate a new email message
+                MailMessage email = new MailMessage();
 
-                        /*Basic Email Formalities*/
-                        //represent the sender's email address
-                        email.From = new MailAddress(ContactInfo.Text.Trim());
+                /*Basic Email Formalities*/
+                //represent the sender's email address
+                email.From = new MailAddress(ContactInfo.Text.Trim());
 
-                        //add the designated email of the recipient
-                        email.To.Add("vaugusto@asu.edu");
+                //add the designated email of the recipient
+                email.To.Add("contact@inventorsworkshops.net");
 
-                        email.Subject = "Contact Email";
-                        email.Body = Cont_FirstName.Text.Trim() + "/n" + Cont_LastName.Text.Trim() +
-                                    "/n/n" + Comments.Text.Trim();
-                        /**/
+                email.Subject = "IW - Contact Email";
+                email.Body = "<strong>From: </strong>" + Cont_FirstName.Text.Trim() + 
+                             "<br/><br/><strong>Message: <br/></strong>" + Comments.Text.Trim();
+                email.IsBodyHtml = true;
+                /**/
 
-                        //instantiate new transfer protocol 
-                        SmtpClient emailProtocol = new SmtpClient();
+                NameValueCollection settings = ConfigurationManager.AppSettings;
+                //instantiate new transfer protocol 
+                SmtpClient client = new SmtpClient();
+                client.Port = Int32.Parse(settings["EMAIL_PORT"]);
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Host = settings["EMAIL_HOST"];
+                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential(settings["EMAIL_USER"], settings["EMAIL_PASSWORD"]);
 
-                        //Send Email
-                        emailProtocol.Send(email);
-                    }
-                    else
-                    {
-                        Message.Text = "Please enter a different email address.";
-                    }
-                }
-
-                catch (FormatException)
-                {
-                    Message.Text = "Please enter your information.";
-                }
-            }
-            else
-            {
-                Message.Text = "Please enter in all the required information.";
-
+                //Send Email
+                client.Send(email);
             }
         }
     }

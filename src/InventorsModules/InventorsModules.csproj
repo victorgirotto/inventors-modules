@@ -380,6 +380,7 @@
     <Compile Include="DAO\ModuleTypesDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="External\BingSearchContainer.cs" />
+    <Compile Include="Helpers\CaptchaHelper.cs" />
     <Compile Include="Helpers\ContextualSearchHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Models\DBModel.cs" />

@@ -35,7 +35,7 @@
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server" NavigateUrl="~/About.aspx">About</asp:HyperLink></li>
                     <li><asp:HyperLink runat="server" NavigateUrl="~/Modules/Modules.aspx">Modules</asp:HyperLink></li>
-                    <!--<li><asp:HyperLink runat="server" NavigateUrl="~/Contact.aspx">Contact</asp:HyperLink></li>-->
+                    <li><asp:HyperLink runat="server" NavigateUrl="~/Contact.aspx">Contact</asp:HyperLink></li>
                 </ul>
                 <asp:LoginView runat="server" ViewStateMode="Disabled">
                     <AnonymousTemplate>

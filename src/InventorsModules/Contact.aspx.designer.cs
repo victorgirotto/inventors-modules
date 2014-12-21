@@ -13,13 +13,22 @@ namespace WebApplication1.Pages {
     public partial class Contact {
         
         /// <summary>
-        /// Message control.
+        /// uc_SuccessMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Message;
+        protected global::System.Web.UI.WebControls.Label uc_SuccessMessage;
+        
+        /// <summary>
+        /// uc_FormControls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uc_FormControls;
         
         /// <summary>
         /// Cont_FirstName control.
@@ -29,15 +38,6 @@ namespace WebApplication1.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Cont_FirstName;
-        
-        /// <summary>
-        /// Cont_LastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cont_LastName;
         
         /// <summary>
         /// ContactInfo control.
@@ -56,6 +56,15 @@ namespace WebApplication1.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Comments;
+        
+        /// <summary>
+        /// uc_CaptchaError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uc_CaptchaError;
         
         /// <summary>
         /// Button1 control.
